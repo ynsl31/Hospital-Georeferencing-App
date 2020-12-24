@@ -1,19 +1,16 @@
 package com.stone.georefhp.entities;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 import lombok.Data;
-
 @Entity
 @Data
-public class NatureService implements Serializable  {
+public class Region implements Serializable  {
 
 	private static final long serialVersionUID = 1L;
 
@@ -21,8 +18,6 @@ public class NatureService implements Serializable  {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public long id;
 
-	public String nom;
-	@OneToMany(mappedBy = "natureService")
-	public List<Service> services;
+	public String nomRegion;
 
 }

@@ -12,32 +12,25 @@ import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
 @JsonIgnoreProperties(value = ("consultation"), allowSetters = true)
 public class Pj implements Serializable {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public int id;
+	public long id;
 
 	public String nom;
-
 	public String url;
+	
 	@Lob
 	private byte[] data;
+	
 	@ManyToOne(cascade = CascadeType.ALL)
 	public Consultation consultation;
 

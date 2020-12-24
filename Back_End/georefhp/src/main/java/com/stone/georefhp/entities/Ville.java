@@ -19,21 +19,18 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class ville implements Serializable  {
-	/**
-	 * 
-	 */
+public class Ville implements Serializable  {
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public int idVille;
-
+	public long id;
 	public String nomVille;
+	
 	@ManyToOne(cascade = CascadeType.ALL)
-	public region region;
+	public Region region;
+	
 	@OneToMany(mappedBy = "ville")
 	public Collection<Hopital> hopitals;
 
