@@ -23,9 +23,38 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/admin-lte/plugins/fontawesome-free/css/all.min.css",
+              "node_modules/admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css",
+
+              "node_modules/admin-lte/plugins/select2/css/select2.min.css",
+              "node_modules/admin-lte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css",
+              "node_modules/admin-lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css",
+              "node_modules/admin-lte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css",
+
+              "node_modules/admin-lte/docs_html/assets/css/adminlte.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/admin-lte/plugins/jquery/jquery.js",
+              "node_modules/admin-lte/plugins/bootstrap/js/bootstrap.bundle.js",
+              "node_modules/admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.js",
+
+
+              "node_modules/admin-lte/plugins/select2/js/select2.full.min.js",
+              "node_modules/admin-lte/plugins/datatables/jquery.dataTables.min.js",
+              "node_modules/admin-lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js",
+              "node_modules/admin-lte/plugins/datatables-responsive/js/dataTables.responsive.min.js",
+              "node_modules/admin-lte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js",
+
+              "node_modules/admin-lte/dist/js/adminlte.js",
+              "node_modules/admin-lte/dist/js/demo.js",
+              "node_modules/admin-lte/plugins/jquery-mousewheel/jquery.mousewheel.js",
+              "node_modules/admin-lte/plugins/raphael/raphael.js",
+              "node_modules/admin-lte/plugins/jquery-mapael/jquery.mapael.js",
+              "node_modules/admin-lte/plugins/jquery-mapael/maps/usa_states.js",
+              "node_modules/admin-lte/plugins/chart.js/Chart.js",
+              "node_modules/admin-lte/dist/js/pages/dashboard2.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -83,9 +112,12 @@
               "src/assets"
             ],
             "styles": [
+              
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              
+            ]
           }
         },
         "lint": {
