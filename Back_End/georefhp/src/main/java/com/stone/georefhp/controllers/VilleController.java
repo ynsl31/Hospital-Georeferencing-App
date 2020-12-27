@@ -13,51 +13,49 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stone.georefhp.entities.Utilisateur;
-import com.stone.georefhp.repository.UtilisateurRepository;
+import com.stone.georefhp.entities.Ville;
+import com.stone.georefhp.repository.VilleRepository;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("api/utilisateurs")
-public class UtilisateurController {
+@RequestMapping("api/villes")
+public class VilleController {
 
 	@Autowired
-	UtilisateurRepository utilisateurRepository;
+	VilleRepository villeRepository;
 	
 	@GetMapping("")
-    public List<Utilisateur> findAll() {
+    public List<Ville> findAll() {
 
-        return utilisateurRepository.findAll();
+        return villeRepository.findAll();
     }
 
     @PostMapping(value = "")
-    public Utilisateur save(@RequestBody final Utilisateur utilisateur) {
+    public Ville save(@RequestBody final Ville ville) {
     	
-    	utilisateurRepository.save(utilisateur);
-        return getOne(String.valueOf(utilisateur.id));
+    	villeRepository.save(ville);
+        return getOne(String.valueOf(ville.id));
     }
 
     @PutMapping("")
-    public Utilisateur update(@RequestBody final Utilisateur utilisateur) {
+    public Ville update(@RequestBody final Ville ville) {
 
-    	utilisateurRepository.save(utilisateur);
-        return getOne(String.valueOf(utilisateur.id));
+    	villeRepository.save(ville);
+        return getOne(String.valueOf(ville.id));
     }
 
     @GetMapping("/{id}")
-    public Utilisateur getOne(@PathVariable(required = true) String id) {
+    public Ville getOne(@PathVariable(required = true) String id) {
 
-        return utilisateurRepository.findById(Long.parseLong(id));
+        return villeRepository.findById(Long.parseLong(id));
     }
 
     @DeleteMapping(value = "/{id}")
     public void delete(@PathVariable(required = true) String id) {
 
-        Utilisateur utilisateur = utilisateurRepository.findById(Long.parseLong(id));
-        utilisateurRepository.delete(utilisateur);
-        utilisateurRepository.flush();
+        Ville ville = villeRepository.findById(Long.parseLong(id));
+        villeRepository.delete(ville);
+        villeRepository.flush();
     }
-    
-        
     
 }

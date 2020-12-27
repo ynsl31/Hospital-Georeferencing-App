@@ -21,10 +21,10 @@ public class Hopital implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public int id;
+	public long id;
 
 	public String nom;
-	public Integer email;
+	public String email;
 
 	public String abriviation;
 	public Double longitude;
@@ -32,7 +32,7 @@ public class Hopital implements Serializable {
 	public Double latitude;
 	public String adresse;
 
-	public Integer codePostale;
+	public int codePostale;
 	public String telephone;
 
 	public String siteWeb;

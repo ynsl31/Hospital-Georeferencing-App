@@ -13,51 +13,49 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stone.georefhp.entities.Utilisateur;
-import com.stone.georefhp.repository.UtilisateurRepository;
+import com.stone.georefhp.entities.Categorie;
+import com.stone.georefhp.repository.CategorieRepository;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("api/utilisateurs")
-public class UtilisateurController {
+@RequestMapping("api/categories")
+public class CategorieController {
 
 	@Autowired
-	UtilisateurRepository utilisateurRepository;
+	CategorieRepository categorieRepository;
 	
 	@GetMapping("")
-    public List<Utilisateur> findAll() {
+    public List<Categorie> findAll() {
 
-        return utilisateurRepository.findAll();
+        return categorieRepository.findAll();
     }
 
     @PostMapping(value = "")
-    public Utilisateur save(@RequestBody final Utilisateur utilisateur) {
+    public Categorie save(@RequestBody final Categorie categorie) {
     	
-    	utilisateurRepository.save(utilisateur);
-        return getOne(String.valueOf(utilisateur.id));
+    	categorieRepository.save(categorie);
+        return getOne(String.valueOf(categorie.id));
     }
 
     @PutMapping("")
-    public Utilisateur update(@RequestBody final Utilisateur utilisateur) {
+    public Categorie update(@RequestBody final Categorie categorie) {
 
-    	utilisateurRepository.save(utilisateur);
-        return getOne(String.valueOf(utilisateur.id));
+    	categorieRepository.save(categorie);
+        return getOne(String.valueOf(categorie.id));
     }
 
     @GetMapping("/{id}")
-    public Utilisateur getOne(@PathVariable(required = true) String id) {
+    public Categorie getOne(@PathVariable(required = true) String id) {
 
-        return utilisateurRepository.findById(Long.parseLong(id));
+        return categorieRepository.findById(Long.parseLong(id));
     }
 
     @DeleteMapping(value = "/{id}")
     public void delete(@PathVariable(required = true) String id) {
 
-        Utilisateur utilisateur = utilisateurRepository.findById(Long.parseLong(id));
-        utilisateurRepository.delete(utilisateur);
-        utilisateurRepository.flush();
+        Categorie categorie = categorieRepository.findById(Long.parseLong(id));
+        categorieRepository.delete(categorie);
+        categorieRepository.flush();
     }
-    
-        
     
 }
