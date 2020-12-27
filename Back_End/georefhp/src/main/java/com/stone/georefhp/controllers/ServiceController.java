@@ -13,51 +13,49 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stone.georefhp.entities.Utilisateur;
-import com.stone.georefhp.repository.UtilisateurRepository;
+import com.stone.georefhp.entities.Service;
+import com.stone.georefhp.repository.ServiceRepository;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("api/utilisateurs")
-public class UtilisateurController {
+@RequestMapping("api/services")
+public class ServiceController {
 
 	@Autowired
-	UtilisateurRepository utilisateurRepository;
+	ServiceRepository serviceRepository;
 	
 	@GetMapping("")
-    public List<Utilisateur> findAll() {
+    public List<Service> findAll() {
 
-        return utilisateurRepository.findAll();
+        return serviceRepository.findAll();
     }
 
     @PostMapping(value = "")
-    public Utilisateur save(@RequestBody final Utilisateur utilisateur) {
+    public Service save(@RequestBody final Service service) {
     	
-    	utilisateurRepository.save(utilisateur);
-        return getOne(String.valueOf(utilisateur.id));
+    	serviceRepository.save(service);
+        return getOne(String.valueOf(service.id));
     }
 
     @PutMapping("")
-    public Utilisateur update(@RequestBody final Utilisateur utilisateur) {
+    public Service update(@RequestBody final Service service) {
 
-    	utilisateurRepository.save(utilisateur);
-        return getOne(String.valueOf(utilisateur.id));
+    	serviceRepository.save(service);
+        return getOne(String.valueOf(service.id));
     }
 
     @GetMapping("/{id}")
-    public Utilisateur getOne(@PathVariable(required = true) String id) {
+    public Service getOne(@PathVariable(required = true) String id) {
 
-        return utilisateurRepository.findById(Long.parseLong(id));
+        return serviceRepository.findById(Long.parseLong(id));
     }
 
     @DeleteMapping(value = "/{id}")
     public void delete(@PathVariable(required = true) String id) {
 
-        Utilisateur utilisateur = utilisateurRepository.findById(Long.parseLong(id));
-        utilisateurRepository.delete(utilisateur);
-        utilisateurRepository.flush();
+        Service service = serviceRepository.findById(Long.parseLong(id));
+        serviceRepository.delete(service);
+        serviceRepository.flush();
     }
-    
-        
     
 }

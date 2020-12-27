@@ -13,51 +13,51 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stone.georefhp.entities.Utilisateur;
-import com.stone.georefhp.repository.UtilisateurRepository;
+import com.stone.georefhp.entities.Region;
+import com.stone.georefhp.repository.RegionRepository;
+
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("api/utilisateurs")
-public class UtilisateurController {
-
+@RequestMapping("api/regions")
+public class RegionController {
+	
 	@Autowired
-	UtilisateurRepository utilisateurRepository;
+	RegionRepository regionRepository;
 	
 	@GetMapping("")
-    public List<Utilisateur> findAll() {
+    public List<Region> findAll() {
 
-        return utilisateurRepository.findAll();
+        return regionRepository.findAll();
     }
 
     @PostMapping(value = "")
-    public Utilisateur save(@RequestBody final Utilisateur utilisateur) {
+    public Region save(@RequestBody final Region region) {
     	
-    	utilisateurRepository.save(utilisateur);
-        return getOne(String.valueOf(utilisateur.id));
+    	regionRepository.save(region);
+        return getOne(String.valueOf(region.id));
     }
 
     @PutMapping("")
-    public Utilisateur update(@RequestBody final Utilisateur utilisateur) {
+    public Region update(@RequestBody final Region region) {
 
-    	utilisateurRepository.save(utilisateur);
-        return getOne(String.valueOf(utilisateur.id));
+    	regionRepository.save(region);
+        return getOne(String.valueOf(region.id));
     }
 
     @GetMapping("/{id}")
-    public Utilisateur getOne(@PathVariable(required = true) String id) {
+    public Region getOne(@PathVariable(required = true) String id) {
 
-        return utilisateurRepository.findById(Long.parseLong(id));
+        return regionRepository.findById(Long.parseLong(id));
     }
 
     @DeleteMapping(value = "/{id}")
     public void delete(@PathVariable(required = true) String id) {
 
-        Utilisateur utilisateur = utilisateurRepository.findById(Long.parseLong(id));
-        utilisateurRepository.delete(utilisateur);
-        utilisateurRepository.flush();
+        Region region = regionRepository.findById(Long.parseLong(id));
+        regionRepository.delete(region);
+        regionRepository.flush();
     }
     
-        
-    
+
 }
