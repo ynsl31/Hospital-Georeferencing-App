@@ -16,9 +16,9 @@ public class Patient extends Utilisateur {
 
 	private static final long serialVersionUID = 1L;
 
-	public String cni;
+	private String cni;
 	
 	@OneToMany(mappedBy = "patient")
-	public List<RendezVous> listrendezVous;
+	private List<RendezVous> listrendezVous;
 
 }

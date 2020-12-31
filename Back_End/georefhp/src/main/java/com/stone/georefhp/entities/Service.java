@@ -22,23 +22,23 @@ public class Service implements Serializable  {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public long id;
+	private long id;
 
-	public String nom;
+	private String nom;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	public NatureService natureService;
+	private NatureService natureService;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	public Hopital hopital;
+	private Hopital hopital;
 	
 	@OneToMany(mappedBy = "service")
-	public List<Medecin> medcins;
+	private List<Medecin> medcins;
 	
 	@OneToMany(mappedBy = "service")
-	public List<RendezVous> listRendezVous;
+	private List<RendezVous> listRendezVous;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	public Departement departement;
+	private Departement departement;
 
 }

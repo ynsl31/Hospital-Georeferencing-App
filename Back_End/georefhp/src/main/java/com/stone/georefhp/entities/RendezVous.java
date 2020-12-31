@@ -20,20 +20,20 @@ public class RendezVous implements Serializable  {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public long id;
+	private long id;
 
-	public Date dateRdv;
-	public String statut;
+	private Date dateRdv;
+	private String statut;
 
-	public Date dateCreation;
+	private Date dateCreation;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	public Patient patient;
+	private Patient patient;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	public Consultation consultation;
+	private Consultation consultation;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	public Service service;
+	private Service service;
 
 }

@@ -21,17 +21,17 @@ public class Departement implements Serializable  {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public int id;
+	private int id;
 
-	public String nom;
+	private String nom;
 	
 	@OneToMany(mappedBy = "departement")
-	public List<Medecin> lesMedecins;
+	private List<Medecin> lesMedecins;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	public Hopital hopital;
+	private Hopital hopital;
 	
 	@OneToMany(mappedBy = "departement")
-	public List<Service> services;
+	private List<Service> services;
 
 }

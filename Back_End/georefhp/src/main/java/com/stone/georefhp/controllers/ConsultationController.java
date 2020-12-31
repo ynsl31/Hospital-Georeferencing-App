@@ -34,14 +34,14 @@ public class ConsultationController {
     public Consultation save(@RequestBody final Consultation consultation) {
     	
     	consultationRepository.save(consultation);
-        return getOne(String.valueOf(consultation.id));
+        return getOne(String.valueOf(consultation.getId()));
     }
 
     @PutMapping("")
     public Consultation update(@RequestBody final Consultation consultation) {
 
     	consultationRepository.save(consultation);
-        return getOne(String.valueOf(consultation.id));
+        return getOne(String.valueOf(consultation.getId()));
     }
 
     @GetMapping("/{id}")

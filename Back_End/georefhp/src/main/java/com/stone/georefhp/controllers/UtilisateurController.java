@@ -34,14 +34,14 @@ public class UtilisateurController {
     public Utilisateur save(@RequestBody final Utilisateur utilisateur) {
     	
     	utilisateurRepository.save(utilisateur);
-        return getOne(String.valueOf(utilisateur.id));
+        return getOne(String.valueOf(utilisateur.getId()));
     }
 
     @PutMapping("")
     public Utilisateur update(@RequestBody final Utilisateur utilisateur) {
 
     	utilisateurRepository.save(utilisateur);
-        return getOne(String.valueOf(utilisateur.id));
+        return getOne(String.valueOf(utilisateur.getId()));
     }
 
     @GetMapping("/{id}")

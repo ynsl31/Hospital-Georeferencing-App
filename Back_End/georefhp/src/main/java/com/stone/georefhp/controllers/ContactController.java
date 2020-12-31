@@ -34,14 +34,14 @@ public class ContactController {
     public Contact save(@RequestBody final Contact contact) {
     	
     	contactRepository.save(contact);
-        return getOne(String.valueOf(contact.id));
+        return getOne(String.valueOf(contact.getId()));
     }
 
     @PutMapping("")
     public Contact update(@RequestBody final Contact contact) {
 
     	contactRepository.save(contact);
-        return getOne(String.valueOf(contact.id));
+        return getOne(String.valueOf(contact.getId()));
     }
 
     @GetMapping("/{id}")

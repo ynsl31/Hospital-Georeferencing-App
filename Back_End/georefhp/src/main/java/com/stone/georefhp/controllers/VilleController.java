@@ -34,14 +34,14 @@ public class VilleController {
     public Ville save(@RequestBody final Ville ville) {
     	
     	villeRepository.save(ville);
-        return getOne(String.valueOf(ville.id));
+        return getOne(String.valueOf(ville.getId()));
     }
 
     @PutMapping("")
     public Ville update(@RequestBody final Ville ville) {
 
     	villeRepository.save(ville);
-        return getOne(String.valueOf(ville.id));
+        return getOne(String.valueOf(ville.getId()));
     }
 
     @GetMapping("/{id}")

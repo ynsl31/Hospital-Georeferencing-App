@@ -34,14 +34,14 @@ public class PjController {
     public Pj save(@RequestBody final Pj pj) {
     	
     	pjRepository.save(pj);
-        return getOne(String.valueOf(pj.id));
+        return getOne(String.valueOf(pj.getId()));
     }
 
     @PutMapping("")
     public Pj update(@RequestBody final Pj pj) {
 
     	pjRepository.save(pj);
-        return getOne(String.valueOf(pj.id));
+        return getOne(String.valueOf(pj.getId()));
     }
 
     @GetMapping("/{id}")

@@ -34,14 +34,14 @@ public class MedecinController {
     public Medecin save(@RequestBody final Medecin medecin) {
     	
     	medecinRepository.save(medecin);
-        return getOne(String.valueOf(medecin.id));
+        return getOne(String.valueOf(medecin.getId()));
     }
 
     @PutMapping("")
     public Medecin update(@RequestBody final Medecin medecin) {
 
     	medecinRepository.save(medecin);
-        return getOne(String.valueOf(medecin.id));
+        return getOne(String.valueOf(medecin.getId()));
     }
 
     @GetMapping("/{id}")

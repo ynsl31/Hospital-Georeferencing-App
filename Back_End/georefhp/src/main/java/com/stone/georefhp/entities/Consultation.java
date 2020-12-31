@@ -22,18 +22,18 @@ public class Consultation implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public long id;
+	private long id;
 	
-	public Date dateConst;
-	public String commentaire;
+	private Date dateConst;
+	private String commentaire;
 	
 	@OneToMany(mappedBy = "consultation")
-	public List<RendezVous>  listRendezVous;
+	private List<RendezVous>  listRendezVous;
     
 	@OneToMany(mappedBy = "consultation")
-	public List<Pj>  myPj;
+	private List<Pj>  myPj;
   
 	@ManyToOne(cascade = CascadeType.ALL)
-    public Medecin medecin;
+	private Medecin medecin;
 
 }

@@ -19,11 +19,11 @@ public class Categorie implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public long id;
+	private long id;
 
-	public String nom;
+	private String nom;
 	
 	@OneToMany(mappedBy = "categorie")
-	public List<Hopital> hopitals;
+	private List<Hopital> hopitals;
 
 }

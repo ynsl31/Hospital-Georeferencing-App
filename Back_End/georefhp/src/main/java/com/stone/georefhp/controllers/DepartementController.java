@@ -34,14 +34,14 @@ public class DepartementController {
     public Departement save(@RequestBody final Departement departement) {
     	
     	departementRepository.save(departement);
-        return getOne(String.valueOf(departement.id));
+        return getOne(String.valueOf(departement.getId()));
     }
 
     @PutMapping("")
     public Departement update(@RequestBody final Departement departement) {
 
     	departementRepository.save(departement);
-        return getOne(String.valueOf(departement.id));
+        return getOne(String.valueOf(departement.getId()));
     }
 
     @GetMapping("/{id}")

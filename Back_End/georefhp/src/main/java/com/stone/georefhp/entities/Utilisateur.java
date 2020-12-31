@@ -23,19 +23,19 @@ public class Utilisateur implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public long id;
+	private long id;
 	
-	public String nom;
-	public String prenom;
-	
-	@Column(unique = true, nullable = false)
-	public String email;
-	public String motDePasse;
+	private String nom;
+	private String prenom;
 	
 	@Column(unique = true, nullable = false)
-	public String login;
+	private String email;
+	private String motDePasse;
+	
+	@Column(unique = true, nullable = false)
+	private String login;
 	
 	@OneToMany(mappedBy = "utilisateur")
-	public List<Contact> contacts;
+	private List<Contact> contacts;
 
 }

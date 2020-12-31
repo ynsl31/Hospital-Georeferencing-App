@@ -34,14 +34,14 @@ public class PatientController {
     public Patient save(@RequestBody final Patient patient) {
     	
     	patientRepository.save(patient);
-        return getOne(String.valueOf(patient.id));
+        return getOne(String.valueOf(patient.getId()));
     }
 
     @PutMapping("")
     public Patient update(@RequestBody final Patient patient) {
 
     	patientRepository.save(patient);
-        return getOne(String.valueOf(patient.id));
+        return getOne(String.valueOf(patient.getId()));
     }
 
     @GetMapping("/{id}")

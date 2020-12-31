@@ -34,14 +34,14 @@ public class ServiceController {
     public Service save(@RequestBody final Service service) {
     	
     	serviceRepository.save(service);
-        return getOne(String.valueOf(service.id));
+        return getOne(String.valueOf(service.getId()));
     }
 
     @PutMapping("")
     public Service update(@RequestBody final Service service) {
 
     	serviceRepository.save(service);
-        return getOne(String.valueOf(service.id));
+        return getOne(String.valueOf(service.getId()));
     }
 
     @GetMapping("/{id}")

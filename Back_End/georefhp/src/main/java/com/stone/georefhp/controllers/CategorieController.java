@@ -34,14 +34,14 @@ public class CategorieController {
     public Categorie save(@RequestBody final Categorie categorie) {
     	
     	categorieRepository.save(categorie);
-        return getOne(String.valueOf(categorie.id));
+        return getOne(String.valueOf(categorie.getId()));
     }
 
     @PutMapping("")
     public Categorie update(@RequestBody final Categorie categorie) {
 
     	categorieRepository.save(categorie);
-        return getOne(String.valueOf(categorie.id));
+        return getOne(String.valueOf(categorie.getId()));
     }
 
     @GetMapping("/{id}")

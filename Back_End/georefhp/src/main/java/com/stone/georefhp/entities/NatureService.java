@@ -19,10 +19,10 @@ public class NatureService implements Serializable  {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public long id;
+	private long id;
 
-	public String nom;
+	private String nom;
 	@OneToMany(mappedBy = "natureService")
-	public List<Service> services;
+	private List<Service> services;
 
 }

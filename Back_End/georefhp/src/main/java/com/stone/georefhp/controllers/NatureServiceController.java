@@ -34,14 +34,14 @@ public class NatureServiceController {
     public NatureService save(@RequestBody final NatureService natureService) {
     	
     	natureServiceRepository.save(natureService);
-        return getOne(String.valueOf(natureService.id));
+        return getOne(String.valueOf(natureService.getId()));
     }
 
     @PutMapping("")
     public NatureService update(@RequestBody final NatureService natureService) {
 
     	natureServiceRepository.save(natureService);
-        return getOne(String.valueOf(natureService.id));
+        return getOne(String.valueOf(natureService.getId()));
     }
 
     @GetMapping("/{id}")

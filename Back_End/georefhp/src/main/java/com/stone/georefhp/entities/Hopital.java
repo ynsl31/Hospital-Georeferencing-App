@@ -21,33 +21,33 @@ public class Hopital implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public long id;
+	private long id;
 
-	public String nom;
-	public String email;
+	private String nom;
+	private String email;
 
-	public String abriviation;
-	public Double longitude;
+	private String abriviation;
+	private Double longitude;
 
-	public Double latitude;
-	public String adresse;
+	private Double latitude;
+	private String adresse;
 
-	public int codePostale;
-	public String telephone;
+	private int codePostale;
+	private String telephone;
 
-	public String siteWeb;
-	public String fax;
+	private String siteWeb;
+	private String fax;
 
 	@OneToMany(mappedBy = "hopital")
-	public List<Service> Services;
+	private List<Service> Services;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	public Ville ville;
+	private Ville ville;
 	
 	@OneToMany(mappedBy = "hopital")
-	public List<Departement> departements;
+	private List<Departement> departements;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	public Categorie categorie;
+	private Categorie categorie;
 
 }

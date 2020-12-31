@@ -34,14 +34,14 @@ public class HopitalController {
     public Hopital save(@RequestBody final Hopital hopital) {
     	
     	hopitalRepository.save(hopital);
-        return getOne(String.valueOf(hopital.id));
+        return getOne(String.valueOf(hopital.getId()));
     }
 
     @PutMapping("")
     public Hopital update(@RequestBody final Hopital hopital) {
 
     	hopitalRepository.save(hopital);
-        return getOne(String.valueOf(hopital.id));
+        return getOne(String.valueOf(hopital.getId()));
     }
 
     @GetMapping("/{id}")

@@ -34,14 +34,14 @@ public class RendezVousController {
     public RendezVous save(@RequestBody final RendezVous rendezVous) {
     	
     	rendezVousRepository.save(rendezVous);
-        return getOne(String.valueOf(rendezVous.id));
+        return getOne(String.valueOf(rendezVous.getId()));
     }
 
     @PutMapping("")
     public RendezVous update(@RequestBody final RendezVous rendezVous) {
 
     	rendezVousRepository.save(rendezVous);
-        return getOne(String.valueOf(rendezVous.id));
+        return getOne(String.valueOf(rendezVous.getId()));
     }
 
     @GetMapping("/{id}")

@@ -21,15 +21,15 @@ public class Medecin extends Utilisateur {
 	private static final long serialVersionUID = 1L;
 	
 	@Column(unique = true)
-	public String matricule;
+	private String matricule;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	public Service service;
+	private Service service;
 	
 	@OneToMany(mappedBy = "medecin")
-	public List<Consultation> consultations;
+	private List<Consultation> consultations;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	public Departement departement;
+	private Departement departement;
 
 }

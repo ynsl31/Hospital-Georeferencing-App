@@ -19,12 +19,12 @@ public class Contact implements Serializable  {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public int id;
+	private int id;
 
-	public String tel;
-	public String adresse;
+	private String tel;
+	private String adresse;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	public Utilisateur utilisateur;
+	private Utilisateur utilisateur;
 
 }

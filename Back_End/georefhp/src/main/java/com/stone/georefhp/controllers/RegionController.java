@@ -35,14 +35,14 @@ public class RegionController {
     public Region save(@RequestBody final Region region) {
     	
     	regionRepository.save(region);
-        return getOne(String.valueOf(region.id));
+        return getOne(String.valueOf(region.getId()));
     }
 
     @PutMapping("")
     public Region update(@RequestBody final Region region) {
 
     	regionRepository.save(region);
-        return getOne(String.valueOf(region.id));
+        return getOne(String.valueOf(region.getId()));
     }
 
     @GetMapping("/{id}")

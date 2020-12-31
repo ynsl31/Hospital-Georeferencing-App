@@ -21,13 +21,13 @@ public class Ville implements Serializable  {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public long id;
-	public String nomVille;
+	private long id;
+	private String nomVille;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	public Region region;
+	private Region region;
 	
 	@OneToMany(mappedBy = "ville")
-	public Collection<Hopital> hopitals;
+	private Collection<Hopital> hopitals;
 
 }

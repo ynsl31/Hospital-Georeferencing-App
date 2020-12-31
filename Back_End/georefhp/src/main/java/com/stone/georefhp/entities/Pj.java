@@ -23,15 +23,15 @@ public class Pj implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public long id;
+	private long id;
 
-	public String nom;
-	public String url;
+	private String nom;
+	private String url;
 	
 	@Lob
 	private byte[] data;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	public Consultation consultation;
+	private Consultation consultation;
 
 }
