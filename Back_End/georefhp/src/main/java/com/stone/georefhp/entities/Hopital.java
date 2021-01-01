@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 
 @Entity
@@ -39,15 +41,19 @@ public class Hopital implements Serializable {
 	private String fax;
 
 	@OneToMany(mappedBy = "hopital")
+	@JsonIgnoreProperties({"hopital"} )
 	private List<Service> Services;
 
 	@ManyToOne(cascade = CascadeType.ALL)
+	@JsonIgnoreProperties({"hopitals"} )
 	private Ville ville;
 	
 	@OneToMany(mappedBy = "hopital")
+	@JsonIgnoreProperties({"hopital"} )
 	private List<Departement> departements;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
+	@JsonIgnoreProperties({"hopitals"} )
 	private Categorie categorie;
 
 }

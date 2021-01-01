@@ -3,7 +3,7 @@ const BASE = 'http://localhost';
 const PATH = 'api';
 
 // Ports
-const PORT_APP = '9000';
+const PORT_APP = '8080';
 
 
 export const API_URLS = {
@@ -25,5 +25,17 @@ export const API_URLS = {
 
   // SERVICE
   SERVICE_API: BASE + ':' + PORT_APP + '/' + PATH + '/services',
+  
+  //Hopital 
+  HOPITAL_API: BASE + ':' + PORT_APP + '/' + PATH + '/hopitaux',
+
+  //Categorie
+  CATEGORIE_API: BASE + ':' + PORT_APP + '/' + PATH + '/categories',
+
+  //Ville
+  VILLE_API: BASE + ':' + PORT_APP + '/' + PATH + '/villes',
+
+   //Regions
+   REGION_API: BASE + ':' + PORT_APP + '/' + PATH + '/regions',
 
 };

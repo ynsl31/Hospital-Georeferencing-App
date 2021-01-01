@@ -1,0 +1,152 @@
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title"> <b> Gestion de {{componentName}} </b></h3>
+
+            <div class="card-tools">
+                <a class="btn btn-header btn-action" data-toggle="modal" data-target=".add-ville">
+                    <i class="fas fa-plus"></i>
+                </a>
+            </div>
+        </div>
+        <div class="card-body p-0" style="display: block;">
+            <table class="table myTable">
+                <thead>
+                    <tr>
+                        <th class="text-center">
+                            #
+                        </th>
+                        <th class="text-center">
+                            Ville
+                        </th>
+                        <th class="text-center">
+                            Region
+                        </th>
+                        <th class="text-center">
+                            <i class="fas fa-cog"></i>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let ville of villes;">
+                        <th class="text-center">
+                            {{ville.id}}
+                        </th>
+                        <td class="text-center">
+                            {{ville.nomVille | uppercase}}
+                        </td>
+                        <td class="text-center">
+                            {{ville.region.nomRegion }}
+                        </td>
+                        <td class="project-actions text-center">
+                            <a class="btn btn-action-view btn-action" (click)="selectedville = ville"
+                                data-toggle="modal" data-target=".show-ville">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a class="btn btn-action-edit btn-action" (click)="selectedville = ville"
+                                data-toggle="modal" data-target=".edit-ville">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a class="btn btn-action-delete btn-action" (click)="selectedville = ville"
+                                data-toggle="modal" data-target=".delete-ville">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</section>
+
+<!-- add ville -->
+<div class="modal fade add-ville myModal" tabindex="-1" role="dialog" aria-labelledby="myAddModalLabel"
+    aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myAddModalLabel"> {{ "nouveau " + componentName | uppercase }}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <!-- <app-add-ville
+
+                (isClosed)="loadData($event)"
+                ></app-add-ville> -->
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- fin add ville -->
+
+<!-- show ville -->
+<div class="modal fade show-ville myModal" tabindex="-1" role="dialog" aria-labelledby="myAddModalLabel"
+    aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myAddModalLabel">AFFICHER LES INFORMATIONS DE <span>{{ selectedville?.nom
+                        + ' ' + selectedville?.prenom | uppercase }}</span></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <!-- <app-ville-details
+
+                [ville]="selectedville">
+
+              </app-ville-details> -->
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- fin show ville -->
+
+<!-- update ville -->
+<div class="modal fade edit-ville myModal" tabindex="-1" role="dialog" aria-labelledby="myAddModalLabel"
+    aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myAddModalLabel">MODIFIER LES INFORMATIONS DE <span>{{ selectedville?.nom
+                        + ' ' + selectedville?.prenom | uppercase }}</span></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <!-- <app-update-ville
+
+                (isClosed)="loadData($event)"
+                [ville]="selectedville">
+
+              </app-update-ville> -->
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- fin update ville -->
+
+<!-- delete ville -->
+<div class="modal fade delete-ville myModal" tabindex="-1" role="dialog" aria-labelledby="myAddModalLabel"
+    aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myAddModalLabel">SUPPRIMER LE CONDUCTEUR <span>{{ selectedville?.nom + ' '
+                        + selectedville?.prenom | uppercase }}</span></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+
+                <h4 class="delete-msg">Voulez-vous vraiment supprimer le ville ?!</h4>
+                <!-- <input [(ngModel)]="deleteConfirmation" type="text"  parsley-trigger="change" required="" placeholder="confirmez la supprission en saisissant 'YES'" class="form-control delete-confirmation"> -->
+
+
+            </div>
+            <div class="modal-footer">
+                <button [disabled]="deleteConfirmation.toUpperCase() != 'YES'" (click)="deleteClient()" type="button"
+                    class="btn btn-delete waves-effect waves-light">Supprimer</button>
+                <button type="button" class="btn btn-light waves-effect" data-dismiss="modal">Anuller</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- fin delete ville -->
