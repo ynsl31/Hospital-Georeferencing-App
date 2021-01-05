@@ -26,10 +26,10 @@ public class Medecin extends Utilisateur {
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Service service;
 	
-	@OneToMany(mappedBy = "medecin")
-	private List<Consultation> consultations;
-	
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Departement departement;
+	
+	@OneToMany(mappedBy = "medecin")
+	private List<Consultation> consultations;
 
 }

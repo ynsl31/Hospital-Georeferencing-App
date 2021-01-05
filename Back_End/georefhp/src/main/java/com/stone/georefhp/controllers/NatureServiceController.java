@@ -18,7 +18,7 @@ import com.stone.georefhp.repository.NatureServiceRepository;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("api/natureservices")
+@RequestMapping("api/nature-services")
 public class NatureServiceController {
 
 	@Autowired

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { NatureService } from "../../../modals/NatureService";
 
 @Component({
   selector: 'app-nature-service-details',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nature-service-details.component.css']
 })
 export class NatureServiceDetailsComponent implements OnInit {
+
+  @Input()  natureService: NatureService
 
   constructor() { }
 

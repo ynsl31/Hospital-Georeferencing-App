@@ -35,7 +35,6 @@ export class MedecinListComponent implements OnInit {
       data => {
 
         this.medecins = data
-        //this.initClient
       },
       error => {
         console.log("error")

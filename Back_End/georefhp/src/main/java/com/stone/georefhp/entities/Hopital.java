@@ -38,9 +38,6 @@ public class Hopital implements Serializable {
 	private String siteWeb;
 	private String fax;
 
-	@OneToMany(mappedBy = "hopital")
-	private List<Service> Services;
-
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Ville ville;
 	

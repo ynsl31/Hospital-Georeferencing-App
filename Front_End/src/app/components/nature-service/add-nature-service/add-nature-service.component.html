@@ -1,3 +1,16 @@
-<p>
-  add-nature-service works!
-</p>
+<form [formGroup]="natureServiceForm" class="myForm">
+
+  <div class="form-group">
+    <label for="name">nom</label>
+    <input type="text" class="form-control" formControlName="nom" placeholder="ex : Examens complémentaires" required style="text-transform: capitalize;">
+    <p class="small alert-danger msg-error" *ngIf="natureServiceForm.controls.nom.invalid && (natureServiceForm.controls.nom.touched || natureServiceForm.controls.nom.dirty)">Ce champ est null ou mal saisi</p>
+  </div>
+
+  <button
+
+    type="submit" class="btn btn-form-submit"
+    [disabled]="natureServiceForm.pristine || natureServiceForm.invalid || natureServiceForm.controls.errors"
+    (click)="addNatureService()"
+    >Enregistrer</button>
+
+</form>

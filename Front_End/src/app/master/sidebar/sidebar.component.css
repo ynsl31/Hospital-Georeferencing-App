@@ -1,0 +1,7 @@
+.iyo-logo {
+    width: 100%;
+}
+
+[class*='sidebar-light-'] .nav-sidebar > .nav-item.menu-open > .nav-link, [class*='sidebar-light-']
+.nav-sidebar > .nav-item:hover > .nav-link { background-color: #00529c; color: #ffffff; } [class*='sidebar-light-']
+.nav-treeview > .nav-item > .nav-link:hover { background-color: #67aedf; }

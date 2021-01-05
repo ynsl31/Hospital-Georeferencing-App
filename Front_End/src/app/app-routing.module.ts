@@ -7,6 +7,9 @@ import { MasterComponent } from './master/master/master.component';
 // Medecin
 import { MedecinListComponent } from "./components/medecin/medecin-list/medecin-list.component";
 
+// Nature Service
+import { NatureServiceListComponent } from "./components/nature-service/nature-service-list/nature-service-list.component";
+
 
 const routes: Routes = [
   {path: '',redirectTo : 'login',pathMatch : 'full'},
@@ -14,8 +17,11 @@ const routes: Routes = [
   // add your new path here
   {path: '',component : MasterComponent,children :[
 
-    // IYO CODE
+    // MEDECINE
     {path: 'medecins', component : MedecinListComponent},
+
+    {path: 'nature-services', component : NatureServiceListComponent},
+
 
 
 

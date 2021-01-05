@@ -18,7 +18,7 @@ import com.stone.georefhp.repository.MedecinRepository;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("api/medcines")
+@RequestMapping("api/medecins")
 public class MedecinController {
 
 	@Autowired

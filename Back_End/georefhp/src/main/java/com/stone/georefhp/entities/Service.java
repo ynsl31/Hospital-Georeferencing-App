@@ -11,10 +11,13 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 
 @Entity
 @Data
+@JsonIgnoreProperties(value = {"natureService"}, allowSetters = true)
 public class Service implements Serializable  {
 
 
@@ -30,15 +33,12 @@ public class Service implements Serializable  {
 	private NatureService natureService;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	private Hopital hopital;
+	private Departement departement;
 	
 	@OneToMany(mappedBy = "service")
 	private List<Medecin> medcins;
 	
 	@OneToMany(mappedBy = "service")
 	private List<RendezVous> listRendezVous;
-	
-	@ManyToOne(cascade = CascadeType.ALL)
-	private Departement departement;
 
 }

@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+
 import lombok.Data;
 
 @Entity
@@ -22,6 +23,7 @@ public class NatureService implements Serializable  {
 	private long id;
 
 	private String nom;
+	
 	@OneToMany(mappedBy = "natureService")
 	private List<Service> services;
 
