@@ -9,10 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 
 @Entity
 @Data
+
 public class Categorie implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -24,6 +27,7 @@ public class Categorie implements Serializable {
 	private String nom;
 	
 	@OneToMany(mappedBy = "categorie")
+	@JsonIgnoreProperties({"categorie"} )
 	private List<Hopital> hopitals;
 
 }

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+
 import {FormsModule, ReactiveFormsModule} from"@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
@@ -37,6 +38,21 @@ import { DepartementDetailsComponent } from './components/departement/departemen
 import { DepartementListComponent } from './components/departement/departement-list/departement-list.component';
 import { AddDepartementComponent } from './components/departement/add-departement/add-departement.component';
 import { UpdateDepartementComponent } from './components/departement/update-departement/update-departement.component';
+import { AddVilleComponent } from './components/ville/add-ville/add-ville.component';
+import { VilleDetailsComponent } from './components/ville/ville-details/ville-details.component';
+import { VilleListComponent } from './components/ville/ville-list/ville-list.component';
+import { UpdateVilleComponent } from './components/ville/update-ville/update-ville.component';
+import { UpdateCategorieComponent } from './components/categorie/update-categorie/update-categorie.component';
+import { AddCategorieComponent } from './components/categorie/add-categorie/add-categorie.component';
+import { CategorieListComponent } from './components/categorie/categorie-list/categorie-list.component';
+import { CategorieDetailsComponent } from './components/categorie/categorie-details/categorie-details.component';
+import { AddHopitalComponent } from './components/hopital/add-hopital/add-hopital.component';
+import { UpdateHopitalComponent } from './components/hopital/update-hopital/update-hopital.component';
+import { RegionListComponent } from './components/region/region-list/region-list.component';
+import { RegionDetailsComponent } from './components/region/region-details/region-details.component';
+import { AddRegionComponent } from './components/region/add-region/add-region.component';
+import { UpdateRegionComponent } from './components/region/update-region/update-region.component';
+import { HopitalListComponent } from './components/hopital/hopital-list/hopital-list.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +88,22 @@ import { UpdateDepartementComponent } from './components/departement/update-depa
     DepartementDetailsComponent,
     DepartementListComponent,
     AddDepartementComponent,
-    UpdateDepartementComponent
+    UpdateDepartementComponent,
+    AddVilleComponent,
+    VilleDetailsComponent,
+    VilleListComponent,
+    UpdateVilleComponent,
+    UpdateCategorieComponent,
+    AddCategorieComponent,
+    CategorieListComponent,
+    CategorieDetailsComponent,
+    AddHopitalComponent,
+    HopitalListComponent,
+    UpdateHopitalComponent,
+    RegionListComponent,
+    RegionDetailsComponent,
+    AddRegionComponent,
+    UpdateRegionComponent
   ],
   imports: [
     BrowserModule,
