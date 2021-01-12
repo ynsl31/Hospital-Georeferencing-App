@@ -1,1 +1,68 @@
-<p>hopital-details works!</p>
+<form class="myForm">
+
+    <div class="form-group">
+      <label for="name">Nom</label>
+      <input type="text" class="form-control" style="text-transform: uppercase;" value="{{hopital?.nom}}" readonly>
+    </div>
+  
+    <div class="form-group">
+      <label for="name">email</label>
+      <textarea name="name" rows="2" cols="80"class="form-control" style="text-transform: capitalize;" value="{{hopital?.email}}" readonly></textarea>
+    </div>
+  
+    <div class="form-group">
+      <label for="name">abriviation</label>
+      <input type="text" class="form-control" style="text-transform: uppercase;" value="{{hopital?.abriviation}}" readonly>
+    </div>
+  
+    <div class="form-group">
+      <label for="name">longitude</label>
+      <input type="text" class="form-control" style="text-transform: uppercase;" value="{{hopital?.longitude}} " readonly>
+    </div>
+  
+    <div class="form-group">
+      <label for="name">latitude</label>
+      <input type="text" class="form-control" style="text-transform: uppercase;" value="{{hopital?.latitude}}" readonly>
+    </div>
+    <div class="form-group">
+        <label for="name">adresse</label>
+        <input type="text" class="form-control" style="text-transform: uppercase;" value="{{hopital?.adresse}}" readonly>
+      </div>
+      <div class="form-group">
+        <label for="name">Code Postal</label>
+        <input type="text" class="form-control" style="text-transform: uppercase;" value="{{hopital?.codePostale}}" readonly>
+      </div>
+      <div class="form-group">
+        <label for="name">telephone</label>
+        <input type="text" class="form-control" style="text-transform: uppercase;" value="{{hopital?.telephone}}" readonly>
+      </div>
+      <div class="form-group">
+        <label for="name">site Web</label>
+        <input type="text" class="form-control" style="text-transform: uppercase;" value="{{hopital?.siteWeb}}" readonly>
+      </div>
+      <div class="form-group">
+        <label for="name">Fax</label>
+        <input type="text" class="form-control" style="text-transform: uppercase;" value="{{hopital?.fax}}" readonly>
+      </div>
+            
+    <div class="form-group" *ngIf="hopital?.categorie">
+      <label for="name">Categorie</label>
+      <input type="text" class="form-control" style="text-transform: uppercase;" value="{{hopital?.categorie.nom}}" readonly>
+    </div>
+    <div class="form-group" *ngIf="hopital?.ville">
+        <label for="name">Ville</label>
+        <input type="text" class="form-control" style="text-transform: uppercase;" value="{{hopital?.ville.nomVille}}" readonly>
+      </div>
+      <div class="form-group">
+
+        <agm-map  [latitude]="hopital?.latitude" [longitude]="hopital?.longitude"  [zoom]='18' >
+            <agm-marker [latitude]="hopital?.latitude" [longitude]="hopital?.longitude" [animation]="'BOUNCE'"> 
+            </agm-marker> 
+          </agm-map>
+          <span>{{lat}} : {{lng}}</span>
+   
+    
+        </div>
+  
+  </form>
+  

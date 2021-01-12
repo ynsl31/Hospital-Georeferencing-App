@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Categorie } from 'src/app/modals/categorie';
 
 @Component({
   selector: 'app-categorie-details',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategorieDetailsComponent implements OnInit {
 
+  @Input() categorie : Categorie
   constructor() { }
 
   ngOnInit() {

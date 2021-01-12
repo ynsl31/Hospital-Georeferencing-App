@@ -41,13 +41,13 @@ public class Hopital implements Serializable {
 	private String fax;
 
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	private Ville ville;
 	
 	@OneToMany(mappedBy = "hopital")
 	private List<Departement> departements;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	private Categorie categorie;
 
 }

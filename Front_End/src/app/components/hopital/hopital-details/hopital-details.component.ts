@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Hopital } from 'src/app/modals/Hopital';
 
 @Component({
   selector: 'app-hopital-details',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HopitalDetailsComponent implements OnInit {
 
-  constructor() { }
+ @Input()  hopital : Hopital
+
+
+  constructor() {
+  
+   }
 
   ngOnInit() {
   }
+
 
 }

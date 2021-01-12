@@ -73,10 +73,10 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
-                <!-- <app-add-ville
+                <app-add-ville
 
                 (isClosed)="loadData($event)"
-                ></app-add-ville> -->
+                ></app-add-ville>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -88,16 +88,16 @@
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="myAddModalLabel">AFFICHER LES INFORMATIONS DE <span>{{ selectedville?.nom
-                        + ' ' + selectedville?.prenom | uppercase }}</span></h4>
+                <h4 class="modal-title" id="myAddModalLabel">AFFICHER LES INFORMATIONS DE <span>{{ selectedville?.nomVille | uppercase
+                    }}</span></h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
-                <!-- <app-ville-details
+                <app-ville-details
 
                 [ville]="selectedville">
 
-              </app-ville-details> -->
+              </app-ville-details> 
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

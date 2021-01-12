@@ -53,6 +53,8 @@ import { RegionDetailsComponent } from './components/region/region-details/regio
 import { AddRegionComponent } from './components/region/add-region/add-region.component';
 import { UpdateRegionComponent } from './components/region/update-region/update-region.component';
 import { HopitalListComponent } from './components/hopital/hopital-list/hopital-list.component';
+import { HopitalDetailsComponent } from './components/hopital/hopital-details/hopital-details.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -100,6 +102,7 @@ import { HopitalListComponent } from './components/hopital/hopital-list/hopital-
     AddHopitalComponent,
     HopitalListComponent,
     UpdateHopitalComponent,
+    HopitalDetailsComponent,
     RegionListComponent,
     RegionDetailsComponent,
     AddRegionComponent,
@@ -108,6 +111,9 @@ import { HopitalListComponent } from './components/hopital/hopital-list/hopital-
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyB7sg-bGrHiYIbNBdQaHp5SHVFXo-0D_NA'
+    }),
 
     FormsModule,
     ReactiveFormsModule,

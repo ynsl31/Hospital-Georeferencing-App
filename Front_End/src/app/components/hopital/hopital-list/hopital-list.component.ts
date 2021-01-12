@@ -18,7 +18,7 @@ export class HopitalListComponent implements OnInit {
 
   hopitals : Hopital[];
   selectedHopital : Hopital;
-
+  hopital : Hopital
   deleteConfirmation : string = ""
 
 

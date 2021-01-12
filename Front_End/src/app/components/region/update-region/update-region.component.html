@@ -1,1 +1,16 @@
-<p>update-region works!</p>
+<form [formGroup]="regionForm" class="myForm">
+
+    <div class="form-group">
+      <label for="nomCategorie">nom</label>
+      <input type="text" class="form-control" formControlName="nom" placeholder="ex : ...." required style="text-transform: capitalize;">
+      <p class="small alert-danger msg-error" *ngIf="regionForm.controls.nom.invalid && (regionForm.controls.nom.touched || regionForm.controls.nom.dirty)">Ce champ est null ou mal saisi</p>
+    </div>
+    <button
+  
+      type="submit" class="btn btn-form-submit"
+      [disabled]="regionForm.pristine || regionForm.invalid || regionForm.controls.errors"
+      (click)="updateRegion()"
+      >Enregistrer</button>
+  
+  </form>
+  
