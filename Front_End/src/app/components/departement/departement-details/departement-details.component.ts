@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Departement } from 'src/app/modals/Departement';
 
 @Component({
   selector: 'app-departement-details',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DepartementDetailsComponent implements OnInit {
 
+  @Input() departement : Departement
   constructor() { }
 
   ngOnInit() {

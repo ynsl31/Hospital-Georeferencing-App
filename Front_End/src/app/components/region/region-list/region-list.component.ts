@@ -40,11 +40,11 @@ export class RegionListComponent implements OnInit {
     );
   }
 
-  deleteRegion(){
+  deleteRegion(id){
 
     if (this.deleteConfirmation.toUpperCase() == 'YES') {
 
-      let id = this.selectedRegion.id;
+     // let id = this.selectedRegion.id;
 
       this.Regionservice.deleteRegion(id).subscribe(data => {
 

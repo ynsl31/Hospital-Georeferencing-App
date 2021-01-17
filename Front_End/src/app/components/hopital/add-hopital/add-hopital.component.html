@@ -1,1 +1,88 @@
-<p>add-hopital works!</p>
+<form [formGroup]="hopitalForm" class="myForm">
+
+    <div class="form-group">
+      <label for="nomhHopital">nom de La hopital</label>
+      <input type="text" class="form-control" formControlName="nom" placeholder="ex : Marrakech,Rabat,Errachidia..." required style="text-transform: capitalize;">
+      <p class="small alert-danger msg-error" *ngIf="hopitalForm.controls.nom.invalid && (hopitalForm.controls.nom.touched || hopitalForm.controls.nom.dirty)">Ce champ est null ou mal saisi</p>
+    </div>
+    <div class="form-group">
+      <label for="nomhHopital">Abriviation</label>
+      <input type="text" class="form-control" formControlName="abriviation" placeholder="ex : Marrakech,Rabat,Errachidia..." required style="text-transform: capitalize;">
+      <p class="small alert-danger msg-error" *ngIf="hopitalForm.controls.abriviation.invalid && (hopitalForm.controls.abriviation.touched || hopitalForm.controls.abriviation.dirty)">Ce champ est null ou mal saisi</p>
+    </div>
+    <div class="form-group">
+        <label for="nomhHopital">site Web</label>
+        <input type="text" class="form-control" formControlName="siteWeb" placeholder="ex : Marrakech,Rabat,Errachidia..." required style="text-transform: capitalize;">
+        <p class="small alert-danger msg-error" *ngIf="hopitalForm.controls.siteWeb.invalid && (hopitalForm.controls.siteWeb.touched || hopitalForm.controls.siteWeb.dirty)">Ce champ est null ou mal saisi</p>
+      </div>
+      <div class="form-group">
+        <label for="nomhHopital">email</label>
+        <input type="text" class="form-control" formControlName="email" placeholder="ex : hopital@exemple." required style="text-transform: capitalize;">
+        <p class="small alert-danger msg-error" *ngIf="hopitalForm.controls.email.invalid && (hopitalForm.controls.email.touched || hopitalForm.controls.email.dirty)">Ce champ est null ou mal saisi</p>
+      </div>
+     
+      
+      <div class="form-group">
+        <label for="nomhHopital">adresse</label>
+        <input type="text" class="form-control" formControlName="adresse" placeholder="ex : Extention Riad XX ..." required style="text-transform: capitalize;">
+        <p class="small alert-danger msg-error" *ngIf="hopitalForm.controls.adresse.invalid && (hopitalForm.controls.adresse.touched || hopitalForm.controls.adresse.dirty)">Ce champ est null ou mal saisi</p>
+      </div>
+      <div class="form-group">
+        <label for="nomhHopital">Code Postal</label>
+        <input type="text" class="form-control" formControlName="codePostale" placeholder="ex : Marrakech,Rabat,Errachidia..." required style="text-transform: capitalize;">
+        <p class="small alert-danger msg-error" *ngIf="hopitalForm.controls.codePostale.invalid && (hopitalForm.controls.codePostale.touched || hopitalForm.controls.codePostale.dirty)">Ce champ est null ou mal saisi</p>
+      </div>
+      <div class="form-group">
+        <label for="nomhHopital">telephone</label>
+        <input type="text" class="form-control" formControlName="telephone" placeholder="ex : 05XXXXXX" required style="text-transform: capitalize;">
+        <p class="small alert-danger msg-error" *ngIf="hopitalForm.controls.telephone.invalid && (hopitalForm.controls.telephone.touched || hopitalForm.controls.telephone.dirty)">Ce champ est null ou mal saisi</p>
+      </div>
+      <div class="form-group">
+        <label for="nomhHopital">fax</label>
+        <input type="text" class="form-control" formControlName="fax" placeholder="ex : 05XXXXXX" required style="text-transform: capitalize;">
+        <p class="small alert-danger msg-error" *ngIf="hopitalForm.controls.fax.invalid && (hopitalForm.controls.fax.touched || hopitalForm.controls.fax.dirty)">Ce champ est null ou mal saisi</p>
+      </div>
+
+    <div class="form-group">
+      <label for="categorie">categorie</label>
+      <select class="form-control" formControlName="categorie"  (change)="onSelectcategorie($event.target.value)">
+        <option *ngFor="let option of categories " [value]="option.id">{{ option.nom }}</option>
+      </select>
+      <p class="small alert-danger msg-error" *ngIf="hopitalForm.controls.categorie.invalid && (hopitalForm.controls.categorie.touched || hopitalForm.controls.categorie.dirty)">Ce champ est null ou mal saisi</p>
+    </div>
+    <div class="form-group">
+      <label for="categorie">Ville</label>
+      <select class="form-control" formControlName="ville"  (change)="onSelectville($event.target.value)">
+        <option *ngFor="let option of villes " [value]="option.id">{{ option.nomVille }}</option>
+      </select>
+      <p class="small alert-danger msg-error" *ngIf="hopitalForm.controls.ville.invalid && (hopitalForm.controls.ville.touched || hopitalForm.controls.ville.dirty)">Ce champ est null ou mal saisi</p>
+    </div>
+    <div class="form-group">
+        <label for="nomhHopital">longitude</label>
+        <input type="text" class="form-control" value="{{ lng }}" formControlName="longitude" placeholder=""  style="text-transform: capitalize;"  readonly>
+        <p class="small alert-danger msg-error" *ngIf="hopitalForm.controls.longitude.invalid && (hopitalForm.controls.longitude.touched || hopitalForm.controls.longitude.dirty)">Ce champ est null ou mal saisi</p>
+      </div>  <div class="form-group">
+        <label for="nomhHopital">latitude</label>
+        <input type="text" class="form-control"  value="{{ lat }}" formControlName="latitude" placeholder=""  style="text-transform: capitalize;"   readonly >
+        <p class="small alert-danger msg-error" *ngIf="hopitalForm.controls.latitude.invalid && (hopitalForm.controls.latitude.touched || hopitalForm.controls.latitude.dirty)">Ce champ est null ou mal saisi</p>
+      </div>
+        
+    <div class="form-group">
+        <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="placeMarker($event)"  [zoom]='7' >
+            <agm-marker [latitude]="lat" [longitude]="lng" [animation]="'BOUNCE'"> 
+            </agm-marker> 
+          </agm-map>
+          <span>{{lat}} : {{lng}}</span>
+   
+    
+        </div>
+  
+    <button
+  
+      type="submit" class="btn btn-form-submit"
+      [disabled]="hopitalForm.pristine || hopitalForm.invalid || hopitalForm.controls.errors"
+      (click)="addhHopital()"
+      >Enregistrer</button>
+  
+  </form>
+  

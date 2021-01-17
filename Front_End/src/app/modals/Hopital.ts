@@ -1,6 +1,7 @@
 import { Categorie } from "./categorie";
 import { Departement } from "./Departement";
 import { Service } from "./Service";
+import { Ville } from "./Ville";
 
 export class Hopital {
     id:           number;
@@ -14,8 +15,8 @@ export class Hopital {
     telephone:    string;
     siteWeb:      string;
     fax:          string;
-    ville:        null;
-    departements: Departement[];
-    categorie:    Categorie;
-    services:     Service[];
+    ville?:        Ville;
+    departements?: Departement[];
+    categorie?:    Categorie;
+    services?:     Service[];
 }

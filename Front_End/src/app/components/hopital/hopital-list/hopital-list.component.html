@@ -104,10 +104,10 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
-                <!-- <app-add-hopital
+                 <app-add-hopital
 
                 (isClosed)="loadData($event)"
-                ></app-add-hopital> -->
+                ></app-add-hopital> 
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -119,16 +119,16 @@
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="myAddModalLabel">AFFICHER LES INFORMATIONS DE <span>{{ selectedhopital?.nom
-                        + ' ' + selectedhopital?.prenom | uppercase }}</span></h4>
+                <h4 class="modal-title" id="myAddModalLabel">AFFICHER LES INFORMATIONS DE <span>{{ selectedhopital?.abriviation
+                        +' : '+selectedhopital?.nom | uppercase }}</span></h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
-                <!-- <app-hopital-details
+           <app-hopital-details
 
                 [hopital]="selectedhopital">
 
-              </app-hopital-details> -->
+              </app-hopital-details> 
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

@@ -1,1 +1,18 @@
-<p>add-region works!</p>
+<form [formGroup]="regionForm" class="myForm">
+
+    <div class="form-group">
+      <label for="nomRegion">nom</label>
+      <input type="text" class="form-control" formControlName="nomRegion" placeholder="ex : Draa tafilalt...." required style="text-transform: capitalize;">
+      <p class="small alert-danger msg-error" *ngIf="regionForm.controls.nomRegion.invalid && (regionForm.controls.nomRegion.touched || regionForm.controls.nomRegion.dirty)">Ce champ est null ou mal saisi</p>
+    </div>
+
+  
+    <button
+  
+      type="submit" class="btn btn-form-submit"
+      [disabled]="regionForm.pristine || regionForm.invalid || regionForm.controls.errors"
+      (click)="addRegion()"
+      >Enregistrer</button>
+  
+  </form>
+  
