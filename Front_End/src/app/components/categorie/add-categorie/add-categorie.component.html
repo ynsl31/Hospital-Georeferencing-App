@@ -1,9 +1,11 @@
 <form [formGroup]="categorieForm" class="myForm">
 
-    <div class="form-group">
-      <label for="nomRegion">nom</label>
-      <input type="text" class="form-control" formControlName="nom" placeholder="ex : ...." required style="text-transform: capitalize;">
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label for="nomRegion">nom</label>
+      <input type="text" class="form-control" formControlName="nom" placeholder="ex : Hopital Général Universitaire" required style="text-transform: capitalize;">
       <p class="small alert-danger msg-error" *ngIf="categorieForm.controls.nom.invalid && (categorieForm.controls.nom.touched || categorieForm.controls.nom.dirty)">Ce champ est null ou mal saisi</p>
+      </div>
     </div>
 
   

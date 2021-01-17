@@ -30,12 +30,15 @@ const routes: Routes = [
     // NATURE SERVICE
     {path: 'nature-services', component : NatureServiceListComponent},
 
+
+
+    
     // YNS CODE
-    {path: 'hopitaux', component : HopitalListComponent},
-    {path: 'villes', component : VilleListComponent},
-    {path: 'regions', component : RegionListComponent},
-    {path: 'departements', component : DepartementListComponent},
     {path: 'categories', component : CategorieListComponent},
+    {path: 'regions', component : RegionListComponent},
+    {path: 'villes', component : VilleListComponent},
+    {path: 'hopitaux', component : HopitalListComponent},
+    {path: 'departements', component : DepartementListComponent},
 
 
   {path: 'test',component : TestComponent},

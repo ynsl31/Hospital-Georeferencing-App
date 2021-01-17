@@ -25,13 +25,22 @@ export class AddHopitalComponent implements OnInit {
 
   lat = 51.678418;
   lng = 7.809007
+
   hopitalForm: FormGroup
   categories: Categorie[]
-  regions : Region[]
   villes : Ville[]
   villesregion : Ville[];
   selectedCategorieId : number
+  regions : Region[]
+  
   selectedVilleId : number
+  
+  isTracking : boolean
+  currentLat: any;
+  currentLong: any;
+  map: any;
+  marker: any;
+  
   constructor(    private form: FormBuilder,
      private hoitalService : HopitalService,
      private VilleService : VilleService,
@@ -39,27 +48,38 @@ export class AddHopitalComponent implements OnInit {
      private regionservice : RegionService
     ) { 
  
-
+    
+    const urlRegex = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
+    const telRegex = '0[5,6][0-9]{8}';
+    const faxRegex = /^0[5][0-9]{8}$/;
 
     this.hopitalForm = form.group({
 
-    nom: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
-    email :['', Validators.compose([Validators.email, Validators.minLength(3)])],       
-    abriviation: ['', Validators.compose([Validators.required, Validators.minLength(3)])] ,
-    adresse:     ['', Validators.compose([Validators.required, Validators.minLength(3)])]   ,
-    codePostale: ['', Validators.compose([Validators.required, Validators.minLength(3)])]  ,
-    telephone:    ['', Validators.compose([ Validators.minLength(3)])] ,
-    siteWeb:   ['', Validators.compose([Validators.required, Validators.minLength(3)])]  ,
-    fax:      ['', Validators.compose([Validators.required, Validators.minLength(3)])]    ,
-    categorie:      ['', Validators.compose([Validators.required])]  ,
-    ville:      ['', Validators.compose([Validators.required])]  ,
-    longitude :[],
-    latitude : [] ,
-    region : []
+      nom: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
+      email :['', Validators.compose([Validators.email, Validators.minLength(3)])],       
 
+      abriviation: ['', Validators.compose([Validators.required, Validators.minLength(3)])] ,
+      adresse:     ['', Validators.compose([Validators.required, Validators.minLength(3)])]   ,
+      
+      codePostale: ['', Validators.compose([Validators.required, Validators.minLength(3)])]  ,
+      telephone:    ['', Validators.pattern(telRegex)],
+      
+      siteWeb:   ['', Validators.compose([Validators.required, Validators.pattern(urlRegex)])]  ,
+      fax:      ['', Validators.pattern(faxRegex)],
+      
+      categorie:      ['', Validators.compose([Validators.required])]  ,
+      ville:      ['', Validators.compose([Validators.required])]  ,
+      
+      longitude :[],
+      latitude : [] ,
+      region : []
     });
 
+
+    
   }
+
+
   onchagecordination($event){
     this.lat = $event.coords.lat
     this.lng =$event.coords.lng
@@ -83,6 +103,8 @@ export class AddHopitalComponent implements OnInit {
     });
 
     this.loadData()
+
+    this.getPosition()
 
   }
 
@@ -152,6 +174,7 @@ this.selectedCategorieId = idcategorie
   centerChange(code) {
     this.subject.next(code);
   }
+  
   addhHopital(){
 
     
@@ -187,5 +210,25 @@ this.selectedCategorieId = idcategorie
 
   }
 
+  getPosition() {
+
+    if (navigator.geolocation) {
+    
+      this.isTracking = true;
+      navigator.geolocation.watchPosition((position) => {
+        
+        this.lat = position.coords.latitude;
+        this.lng = position.coords.longitude;
+        
+      });
+    
+    } else {
+     
+      alert("Pour le bien fonctionnement, Autorisez nous pour occuperer votre position.");
+    }
+  }
   
+
+
+
 }

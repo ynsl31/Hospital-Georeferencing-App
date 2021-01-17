@@ -88,11 +88,9 @@
     </div>
     <div class="col">
       <div class="form-group">
-        <label for="region">Region</label>
-        <select class="form-control" formControlName="region"  (change)="onSelectRegion($event.target.value)">
-          <option *ngFor="let option of regions " [value]="option.id">{{ option.nomRegion }}</option>
-        </select>
-        <p class="small alert-danger msg-error" *ngIf="villeForm.controls.region.invalid && (villeForm.controls.region.touched || villeForm.controls.region.dirty)">Ce champ est null ou mal saisi</p>
+        <label for="nomhHopital">telephone</label>
+        <input type="text" class="form-control" formControlName="telephone" placeholder="ex : 05XXXXXX | 06XXXXXX" required style="text-transform: capitalize;">
+        <p class="small alert-danger msg-error" *ngIf="hopitalForm.controls.telephone.invalid && (hopitalForm.controls.telephone.touched || hopitalForm.controls.telephone.dirty)">Ce champ est null ou mal saisi</p>
       </div>
     </div>
     <div class="col">
@@ -128,24 +126,23 @@
           *ngIf="hopitalForm.controls.latitude.invalid && (hopitalForm.controls.latitude.touched || hopitalForm.controls.latitude.dirty)">
           Ce champ est null ou mal saisi</p>
       </div>
-    </div>
+        </div>
   </div>
-
-
-
-
-  <div class="form-group">
-    <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="placeMarker($event)" [zoom]='7'>
-      <agm-marker [latitude]="lat" [longitude]="lng" [animation]="'BOUNCE'">
-      </agm-marker>
-    </agm-map>
-    <span>{{lat}} : {{lng}}</span>
-
-
-  </div>
-
-  <button type="submit" class="btn btn-form-submit"
-    [disabled]="hopitalForm.pristine || hopitalForm.invalid || hopitalForm.controls.errors"
-    (click)="addhHopital()">Enregistrer</button>
-
-</form>
+    <div class="form-group">
+        <agm-map 
+          [latitude]="lat" [longitude]="lng" [zoom]='15' (mapClick)="placeMarker($event)">
+            <agm-marker [latitude]="lat" [longitude]="lng" [animation]="'BOUNCE'"> 
+            </agm-marker> 
+          </agm-map>
+          <span>{{lat}} : {{lng}}</span>
+        </div>
+  
+    <button
+  
+      type="submit" class="btn btn-form-submit"
+      [disabled]="hopitalForm.pristine || hopitalForm.invalid || hopitalForm.controls.errors"
+      (click)="addhHopital()"
+      >Enregistrer</button>
+  
+  </form>
+  

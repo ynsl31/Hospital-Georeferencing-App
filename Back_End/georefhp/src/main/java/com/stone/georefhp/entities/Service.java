@@ -29,6 +29,10 @@ public class Service implements Serializable  {
 
 	private String nom;
 	
+	private String heureDebut;
+	private String heureFin;
+	private int heureStep;
+	
 	@ManyToOne(cascade = CascadeType.ALL)
 	private NatureService natureService;
 	
