@@ -38,11 +38,10 @@ export class CategorieListComponent implements OnInit {
     );
   }
 
-  deleteCategorie(){
+  deleteCategorie(id){
 
     if (this.deleteConfirmation.toUpperCase() == 'YES') {
 
-      let id = this.selectedCategorie.id;
 
       this.Categorieservice.deleteCategorie(id).subscribe(data => {
 

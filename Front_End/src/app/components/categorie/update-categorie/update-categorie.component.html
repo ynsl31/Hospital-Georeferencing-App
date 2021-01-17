@@ -1,1 +1,18 @@
-<p>update-categorie works!</p>
+<form [formGroup]="categorieForm" class="myForm">
+
+    <div class="form-group">
+      <label for="nomRegion">nom</label>
+      <input type="text" class="form-control" formControlName="nom" placeholder="ex : ...." required style="text-transform: capitalize;">
+      <p class="small alert-danger msg-error" *ngIf="categorieForm.controls.nom.invalid && (categorieForm.controls.nom.touched || categorieForm.controls.nom.dirty)">Ce champ est null ou mal saisi</p>
+    </div>
+
+  
+    <button
+  
+      type="submit" class="btn btn-form-submit"
+      [disabled]="categorieForm.pristine || categorieForm.invalid || categorieForm.controls.errors"
+      (click)="updateCategorie()"
+      >Enregistrer</button>
+  
+  </form>
+  

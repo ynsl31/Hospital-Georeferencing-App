@@ -39,7 +39,7 @@ export class AddRegionComponent implements OnInit {
 
 
 
-  addVille() {
+  addRegion() {
 
     let region = new Region();
 
