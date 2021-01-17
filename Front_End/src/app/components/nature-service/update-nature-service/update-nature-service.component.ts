@@ -14,7 +14,7 @@ declare var $ :any;
 export class UpdateNatureServiceComponent implements OnInit {
 
   @Output() isClosed = new EventEmitter<boolean>();
-  @Input()  natureService: NatureService
+  @Input()  natureService: NatureService = new NatureService();
 
   natureServiceForm :  FormGroup
 
@@ -40,7 +40,10 @@ export class UpdateNatureServiceComponent implements OnInit {
 
     this.natureServiceForm.reset();
 
-    this.natureServiceForm.controls['nom'].setValue(this.natureService.nom);
+    if (this.natureService) {
+
+      this.natureServiceForm.controls['nom'].setValue(this.natureService.nom);
+    }
 
   }
 
