@@ -7,8 +7,10 @@ import { debounceTime } from "rxjs/operators";
 
 import { Categorie } from 'src/app/modals/categorie';
 import { Hopital } from 'src/app/modals/Hopital';
+import { Region } from 'src/app/modals/Region';
 import { Ville } from 'src/app/modals/Ville';
 import { CategorieService } from '../../categorie/categorie.service';
+import { RegionService } from '../../region/region.service';
 import { VilleService } from '../../ville/ville.service';
 import { HopitalService } from '../hopital.service';
 
@@ -25,13 +27,16 @@ export class AddHopitalComponent implements OnInit {
   lng = 7.809007
   hopitalForm: FormGroup
   categories: Categorie[]
+  regions : Region[]
   villes : Ville[]
+  villesregion : Ville[];
   selectedCategorieId : number
   selectedVilleId : number
   constructor(    private form: FormBuilder,
      private hoitalService : HopitalService,
      private VilleService : VilleService,
      private categorieService : CategorieService,
+     private regionservice : RegionService
     ) { 
  
 
@@ -49,7 +54,8 @@ export class AddHopitalComponent implements OnInit {
     categorie:      ['', Validators.compose([Validators.required])]  ,
     ville:      ['', Validators.compose([Validators.required])]  ,
     longitude :[],
-    latitude : [] 
+    latitude : [] ,
+    region : []
 
     });
 
@@ -88,7 +94,35 @@ this.selectedCategorieId = idcategorie
     this.selectedVilleId = idhopital
 
   }
+  onSelectregion(id){
+ 
+    this.VilleService.villesByRegion(id).subscribe(
+      data => {
+
+        this.villes = data
+
+      },
+      error => {
+        console.log("error")
+      },
+      () => { console.log('Ville by regin  Data loading ... Done')}
+    );
+  }
+
+
   loadData(){
+
+    this.regionservice.getRegions().subscribe(
+      data => {
+
+        this.regions = data
+
+      },
+      error => {
+        console.log("error")
+      },
+      () => { console.log('TypeEmballage Data loading ... Done')}
+    );
 
     this.VilleService.getVilles().subscribe(
       data => {

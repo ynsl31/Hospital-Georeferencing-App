@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.stone.georefhp.entities.Region;
 import com.stone.georefhp.entities.Ville;
+import com.stone.georefhp.repository.RegionRepository;
 import com.stone.georefhp.repository.VilleRepository;
 
 @RestController
@@ -23,11 +25,20 @@ public class VilleController {
 
 	@Autowired
 	VilleRepository villeRepository;
+	@Autowired
+	RegionRepository regionrep;
 	
 	@GetMapping("")
     public List<Ville> findAll() {
 
         return villeRepository.findAll();
+    }
+	
+	@GetMapping("/region/{id}")
+    public List<Ville> findByRegion(@PathVariable(required = true) String id) {
+    	
+
+        return villeRepository.findByRegion(regionrep.findById(Long.parseLong(id)));
     }
 
     @PostMapping(value = "")

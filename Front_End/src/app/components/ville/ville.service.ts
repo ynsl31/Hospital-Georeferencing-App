@@ -35,4 +35,8 @@ deleteVille(id: number): Observable<any> {
 
   return this.http.delete(API_URLS.VILLE_API + `/${id}`);
 }
+villesByRegion(id : number){
+
+return this.http.get<Ville[]>(API_URLS.VILLE_API + `/region/${id}`);
+}
 }
