@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Region } from 'src/app/modals/Region';
 import { RegionService } from '../region.service';
 
-declare var $ :any;
+declare var $: any;
 
 @Component({
   selector: 'app-update-region',
@@ -12,13 +12,13 @@ declare var $ :any;
 })
 export class UpdateRegionComponent implements OnInit {
 
-  
-  @Input()  region: Region
+
+  @Input() region: Region
 
   @Output() isClosed = new EventEmitter<boolean>();
 
   regionForm: FormGroup
- 
+
   constructor(
     private form: FormBuilder,
     private regionService: RegionService
@@ -27,8 +27,8 @@ export class UpdateRegionComponent implements OnInit {
 
     this.regionForm = form.group({
 
-      nom: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
-    
+      nomRegion: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
+
 
     });
 
@@ -42,7 +42,7 @@ export class UpdateRegionComponent implements OnInit {
     let region = new Region();
 
     region = this.regionForm.value;
-
+    console.log(region.nomRegion);
     region.id = this.region.id
 
     this.regionService.createRegion(region).subscribe(

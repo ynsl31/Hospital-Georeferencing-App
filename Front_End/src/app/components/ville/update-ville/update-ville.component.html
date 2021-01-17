@@ -1,0 +1,25 @@
+<form [formGroup]="villeForm" class="myForm">
+
+    <div class="form-group">
+      <label for="nomVille">nom de La ville</label>
+      <input type="text" class="form-control" formControlName="nomVille" placeholder="ex : Marrakech,Rabat,Errachidia..." required style="text-transform: capitalize;">
+      <p class="small alert-danger msg-error" *ngIf="villeForm.controls.nomVille.invalid && (villeForm.controls.nomVille.touched || villeForm.controls.nomVille.dirty)">Ce champ est null ou mal saisi</p>
+    </div>
+
+    <div class="form-group">
+      <label for="region">Region</label>
+      <select class="form-control" formControlName="region"  (change)="onSelectRegion($event.target.value)">
+        <option *ngFor="let option of regions " [value]="option.id">{{ option.nomRegion }}</option>
+      </select>
+      <p class="small alert-danger msg-error" *ngIf="villeForm.controls.region.invalid && (villeForm.controls.region.touched || villeForm.controls.region.dirty)">Ce champ est null ou mal saisi</p>
+    </div>
+  
+    <button
+  
+      type="submit" class="btn btn-form-submit"
+      [disabled]="villeForm.pristine || villeForm.invalid || villeForm.controls.errors"
+      (click)="updateVille()"
+      >Enregistrer</button>
+  
+  </form>
+  
