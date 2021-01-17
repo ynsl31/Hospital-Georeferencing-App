@@ -11,10 +11,13 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 
 @Entity
 @Data
+@JsonIgnoreProperties(value = {"hopital"}, allowSetters = true)
 public class Departement implements Serializable  {
 
 	private static final long serialVersionUID = 1L;

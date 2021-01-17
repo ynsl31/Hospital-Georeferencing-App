@@ -22,22 +22,10 @@
                             nom
                         </th>
                         <th class="text-center">
-                            email
-                        </th>
-                        <th class="text-center">
-                            abreviation
-                        </th>
-                        <th class="text-center">
-                            Telephone
-                        </th>
-                        <th class="text-center">
-                            adresse
-                        </th>
-                        <th class="text-center">
-                            site web
-                        </th>
-                        <th class="text-center">
                             Ville
+                        </th>
+                        <th class="text-center">
+                            categorie
                         </th>
                         <th class="text-center">
                             <i class="fas fa-cog"></i>
@@ -52,19 +40,7 @@
                         <td class="text-center">
                             {{hopital.nom | uppercase}}
                         </td>
-                        <td class="text-center">
-                            {{hopital.email }}
-                        </td>
-                        <td class="text-center">
-                            {{hopital.abriviation | titlecase}}
-                        </td>
-                        <td class="text-center">
-                            {{ (hopital.telephone !== null)? hopital.telephone : " -- " }}
-                        </td>
-                        <td class="text-center">
-                            {{hopital.adresse}}
-                        </td>
-                        <td class="text-center">
+                        <td class="text-center" title="{{hopital.ville.region.nomRegion}}">
                             {{hopital.ville.nomVille}}
                         </td>
                         <td class="text-center">
@@ -72,15 +48,21 @@
                         </td>
 
                         <td class="project-actions text-center">
-                            <a class="btn btn-action-view btn-action" (click)="selectedhopital = hopital"
+                            <a class="btn btn-action-view btn-action" (click)="selectedHopital = hopital"
                                 data-toggle="modal" data-target=".show-hopital">
                                 <i class="fas fa-eye"></i>
                             </a>
-                            <a class="btn btn-action-edit btn-action" (click)="selectedhopital = hopital"
+
+                            <a class="btn btn-action-add-dep btn-action" (click)="selectedHopital = hopital"
+                                data-toggle="modal" data-target=".add-departement">
+                                <i class="fas fa-ethernet"></i>
+                            </a>
+
+                            <a class="btn btn-action-edit btn-action" (click)="selectedHopital = hopital"
                                 data-toggle="modal" data-target=".edit-hopital">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a class="btn btn-action-delete btn-action" (click)="selectedhopital = hopital"
+                            <a class="btn btn-action-delete btn-action" (click)="selectedHopital = hopital"
                                 data-toggle="modal" data-target=".delete-hopital">
                                 <i class="fas fa-trash"></i>
                             </a>
@@ -119,14 +101,14 @@
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="myAddModalLabel">AFFICHER LES INFORMATIONS DE <span>{{ selectedhopital?.abriviation
-                        +' : '+selectedhopital?.nom | uppercase }}</span></h4>
+                <h4 class="modal-title" id="myAddModalLabel">AFFICHER LES INFORMATIONS DE <span>{{ selectedHopital?.abriviation
+                        +' : '+selectedHopital?.nom | uppercase }}</span></h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
            <app-hopital-details
 
-                [hopital]="selectedhopital">
+                [hopital]="selectedHopital">
 
               </app-hopital-details> 
             </div>
@@ -140,15 +122,15 @@
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="myAddModalLabel">MODIFIER LES INFORMATIONS DE <span>{{ selectedhopital?.nom
-                        + ' ' + selectedhopital?.prenom | uppercase }}</span></h4>
+                <h4 class="modal-title" id="myAddModalLabel">MODIFIER LES INFORMATIONS DE <span>{{ selectedHopital?.nom
+                        + ' ' + selectedHopital?.prenom | uppercase }}</span></h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
                 <!-- <app-update-hopital
 
                 (isClosed)="loadData($event)"
-                [hopital]="selectedhopital">
+                [hopital]="selectedHopital">
 
               </app-update-hopital> -->
             </div>
@@ -162,8 +144,8 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="myAddModalLabel">SUPPRIMER LE CONDUCTEUR <span>{{ selectedhopital?.nom + ' '
-                        + selectedhopital?.prenom | uppercase }}</span></h4>
+                <h4 class="modal-title" id="myAddModalLabel">SUPPRIMER LE CONDUCTEUR <span>{{ selectedHopital?.nom + ' '
+                        + selectedHopital?.prenom | uppercase }}</span></h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
@@ -181,3 +163,36 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- fin delete hopital -->
+
+<!-- add departement -->
+<div class="modal fade add-departement myModal" tabindex="-1" role="dialog" aria-labelledby="myAddModalLabel"
+    aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myAddModalLabel">liste des departements</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+
+                <table class="table myTable">
+                    <thead>
+                        <tr>
+                            <th class="text-center">
+                                nom
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let departement of selectedHopital?.departements">
+                            <td class="text-center">
+                                {{departement.nom | uppercase}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- fin show hopital -->

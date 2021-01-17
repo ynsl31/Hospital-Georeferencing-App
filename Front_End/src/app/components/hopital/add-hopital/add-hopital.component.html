@@ -34,7 +34,7 @@
       </div>
       <div class="form-group">
         <label for="nomhHopital">telephone</label>
-        <input type="text" class="form-control" formControlName="telephone" placeholder="ex : 05XXXXXX" required style="text-transform: capitalize;">
+        <input type="text" class="form-control" formControlName="telephone" placeholder="ex : 05XXXXXX | 06XXXXXX" required style="text-transform: capitalize;">
         <p class="small alert-danger msg-error" *ngIf="hopitalForm.controls.telephone.invalid && (hopitalForm.controls.telephone.touched || hopitalForm.controls.telephone.dirty)">Ce champ est null ou mal saisi</p>
       </div>
       <div class="form-group">
@@ -68,13 +68,12 @@
       </div>
         
     <div class="form-group">
-        <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="placeMarker($event)"  [zoom]='7' >
+        <agm-map 
+          [latitude]="lat" [longitude]="lng" [zoom]='15' (mapClick)="placeMarker($event)">
             <agm-marker [latitude]="lat" [longitude]="lng" [animation]="'BOUNCE'"> 
             </agm-marker> 
           </agm-map>
           <span>{{lat}} : {{lng}}</span>
-   
-    
         </div>
   
     <button

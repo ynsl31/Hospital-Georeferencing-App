@@ -22,3 +22,4 @@
 .delete-confirmation{background-color:#fff;border:1px solid #de606c;padding:26px;border-radius:0;text-transform:uppercase;letter-spacing:2px;font-weight:600}
 .btn-delete{background-color:#de606c;color:#fff;text-transform:uppercase;letter-spacing:2px;font-size:14px;transition:.6s;padding:5px 15px}
 .btn-delete:hover{padding:5px 30px;color:#fff}
+.btn-action-add-dep { background-color: #27ae60; }

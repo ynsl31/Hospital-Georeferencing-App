@@ -29,7 +29,7 @@ export class AddCategorieComponent implements OnInit {
     this.categorieForm = form.group({
 
       nom: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
-    
+       
 
     });
 
