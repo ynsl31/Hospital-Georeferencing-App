@@ -108,12 +108,12 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
-                <!-- <app-update-categorie
+            <app-update-categorie
 
                 (isClosed)="loadData($event)"
                 [categorie]="selectedcategorie">
 
-              </app-update-categorie> -->
+              </app-update-categorie> 
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -125,19 +125,18 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="myAddModalLabel">SUPPRIMER LE CONDUCTEUR <span>{{ selectedcategorie?.nom + ' '
-                        + selectedcategorie?.prenom | uppercase }}</span></h4>
+                <h4 class="modal-title" id="myAddModalLabel">SUPPRIMER LE CONDUCTEUR <span>{{ selectedcategorie?.nom | uppercase }}</span></h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
 
                 <h4 class="delete-msg">Voulez-vous vraiment supprimer le categorie ?!</h4>
-                <!-- <input [(ngModel)]="deleteConfirmation" type="text"  parsley-trigger="change" required="" placeholder="confirmez la supprission en saisissant 'YES'" class="form-control delete-confirmation"> -->
+         <input [(ngModel)]="deleteConfirmation" type="text"  parsley-trigger="change" required="" placeholder="confirmez la supprission en saisissant 'YES'" class="form-control delete-confirmation"> 
 
 
             </div>
             <div class="modal-footer">
-                <button [disabled]="deleteConfirmation.toUpperCase() != 'YES'" (click)="deleteClient()" type="button"
+                <button [disabled]="deleteConfirmation.toUpperCase() != 'YES'" (click)="deleteCategorie(selectedcategorie.id)" type="button"
                     class="btn btn-delete waves-effect waves-light">Supprimer</button>
                 <button type="button" class="btn btn-light waves-effect" data-dismiss="modal">Anuller</button>
             </div>
