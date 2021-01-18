@@ -1,5 +1,4 @@
 import { NatureService } from "./NatureService";
-import { Departement } from "./Departement";
 
 export class Service {
 
@@ -7,7 +6,4 @@ export class Service {
 
   nom?: string;
   natureService?: NatureService;
-
-  departement?: Departement;
-
 }

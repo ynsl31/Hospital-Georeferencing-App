@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Service } from 'src/app/modals/Service';
 
 @Component({
   selector: 'app-service-details',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServiceDetailsComponent implements OnInit {
 
+  @Input() service : Service;
+  
   constructor() { }
 
   ngOnInit() {

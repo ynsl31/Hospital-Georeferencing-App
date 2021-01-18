@@ -45,7 +45,7 @@ public class Hopital implements Serializable {
 	private Ville ville;
 	
 	@OneToMany(mappedBy = "hopital")
-	private List<Departement> departements;
+	private List<Service> services;
 	
 	@ManyToOne(cascade = CascadeType.MERGE)
 	private Categorie categorie;

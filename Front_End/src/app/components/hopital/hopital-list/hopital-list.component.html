@@ -53,9 +53,9 @@
                                 <i class="fas fa-eye"></i>
                             </a>
 
-                            <a class="btn btn-action-add-dep btn-action" (click)="selectedHopital = hopital"
-                                data-toggle="modal" data-target=".add-departement">
-                                <i class="fas fa-ethernet"></i>
+                            <a class="btn btn-action-add-ser btn-action" (click)="selectedHopital = hopital"
+                                data-toggle="modal" data-target=".add-service">
+                                <i class="fas fa-check-double"></i>
                             </a>
 
                             <a class="btn btn-action-edit btn-action" (click)="selectedHopital = hopital"
@@ -164,35 +164,22 @@
     </div><!-- /.modal-dialog -->
 </div><!-- fin delete hopital -->
 
-<!-- add departement -->
-<div class="modal fade add-departement myModal" tabindex="-1" role="dialog" aria-labelledby="myAddModalLabel"
-    aria-hidden="true" style="display: none;">
+<!-- add service -->
+<div class="modal fade add-service myModal" tabindex="-1" role="dialog" aria-labelledby="myAddModalLabel"
+    aria-hidden="true" style="display: none;" *ngIf="selectedHopital" >
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="myAddModalLabel">liste des departements</h4>
+                <h4 class="modal-title" id="myAddModalLabel">liste des services</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
 
-                <table class="table myTable">
-                    <thead>
-                        <tr>
-                            <th class="text-center">
-                                nom
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let departement of selectedHopital?.departements">
-                            <td class="text-center">
-                                {{departement.nom | uppercase}}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <app-add-service [hopital]="selectedHopital" (isClosed)="loadData($event)"></app-add-service>
+                <br>
+                <app-service-list [hopital]="selectedHopital" (isClosed)="loadData($event)"></app-service-list>
 
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
-</div><!-- fin show hopital -->
+</div><!-- fin show service -->

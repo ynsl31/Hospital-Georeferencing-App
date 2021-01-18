@@ -1,5 +1,4 @@
 import { Categorie } from "./categorie";
-import { Departement } from "./Departement";
 import { Service } from "./Service";
 import { Ville } from "./Ville";
 
@@ -16,7 +15,6 @@ export class Hopital {
     siteWeb:      string;
     fax:          string;
     ville?:        Ville;
-    departements?: Departement[];
     categorie?:    Categorie;
     services?:     Service[];
 }

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-
-import { NatureService } from "../../../modals/NatureService";
-// import { NatureServiceService } from "../nature-service.service";
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Hopital } from 'src/app/modals/Hopital';
+import { Service } from 'src/app/modals/Service';
+import { ServiceService } from '../service.service';
 
 declare var $ :any;
 
@@ -14,57 +14,49 @@ export class ServiceListComponent implements OnInit {
 
   componentName : string = "Services de departements"
 
-  // natureServices : NatureService[];
-  // selectedNatureService : NatureService;
-  //
-  // deleteConfirmation : string = ""
+  @Input() hopital : Hopital;
+  @Output() isClosed = new EventEmitter<boolean>();
+
+  services : Service[];
+  selectedservice : Service;
+
+  deleteConfirmation : string = ""
 
 
   constructor(
-    // private natureServiceService : NatureServiceService,
+    private serviceService : ServiceService,
 
   ) { }
 
-  ngOnInit() {
-
-    // this.loadData();
+  ngOnInit() {    
+    
   }
 
-  // loadData(){
-  //
-  //   this.natureServiceService.getNatureServices().subscribe(
-  //     data => {
-  //
-  //       this.natureServices = data
-  //     },
-  //     error => {
-  //       console.log("error")
-  //     },
-  //     () => { console.log('NatureService Data loading ... Done')}
-  //   );
-  // }
-  //
-  // deleteClient(){
-  //
-  //   if (this.deleteConfirmation.toUpperCase() == 'YES') {
-  //
-  //     let id = this.selectedNatureService.id;
-  //
-  //     this.natureServiceService.deleteNatureService(id).subscribe(data => {
-  //
-  //         this.loadData();
-  //
-  //         $('.modal').modal('hide');
-  //
-  //       },
-  //       error => {
-  //         console.log("error");
-  //       },
-  //       () => {}
-  //     );
-  //
-  //   }
-  //
-  // }
+  ngOnChanges() {
+
+  }
+  
+  deleteClient(){
+  
+    if (this.deleteConfirmation.toUpperCase() == 'YES') {
+  
+      let id = this.selectedservice.id;     
+  
+      this.serviceService.deleteService(this.hopital.id, id).subscribe(data => {
+  
+          $('.modal').modal('hide');
+          
+          this.isClosed.emit(true);
+  
+        },
+        error => {
+          console.log("error");
+        },
+        () => {}
+      );
+  
+    }
+  
+  }
 
 }

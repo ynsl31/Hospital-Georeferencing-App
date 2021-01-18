@@ -1,3 +1,24 @@
-<p>
-  add-service works!
-</p>
+<form [formGroup]="serviceForm" class="myForm" *ngIf="hopital" >
+
+  <div class="form-group">
+    <label for="name">nature de service</label>
+    <select class="form-control mySelect" data-select="natureService" formControlName="natureService">
+      <option *ngFor="let natureService of natureServices" value="{{natureService.id}}">{{natureService.nom}}</option>
+    </select>
+    <p class="small alert-danger msg-error" *ngIf="serviceForm.controls.natureService.invalid && (serviceForm.controls.natureService.touched || serviceForm.controls.natureService.dirty)">Ce champ est null ou mal saisi</p>
+  </div>
+
+  <div class="form-group">
+    <label for="name">nom</label>
+    <input type="text" class="form-control" formControlName="nom" placeholder="ex : Ophtalmologie" required style="text-transform: capitalize;">
+    <p class="small alert-danger msg-error" *ngIf="serviceForm.controls.nom.invalid && (serviceForm.controls.nom.touched || serviceForm.controls.nom.dirty)">Ce champ est null ou mal saisi</p>
+  </div>
+
+  <button
+
+    type="submit" class="btn btn-form-submit"
+    [disabled]="serviceForm.pristine || serviceForm.invalid || serviceForm.controls.errors"
+    (click)="addService()"
+    >Enregistrer</button>
+
+</form>

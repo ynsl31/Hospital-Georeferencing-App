@@ -14,44 +14,56 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.stone.georefhp.entities.Service;
+import com.stone.georefhp.repository.HopitalRepository;
+import com.stone.georefhp.repository.NatureServiceRepository;
 import com.stone.georefhp.repository.ServiceRepository;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("api/services")
+@RequestMapping("api/hopitaux/{hopital}/services")
 public class ServiceController {
 
 	@Autowired
 	ServiceRepository serviceRepository;
 	
+	@Autowired
+	NatureServiceRepository natureServiceRepository;
+	
+	@Autowired
+	HopitalRepository hopitalRepository;
+	
 	@GetMapping("")
-    public List<Service> findAll() {
+    public List<Service> findAll(@PathVariable(required = true) String hopital) {
 
-        return serviceRepository.findAll();
+        return serviceRepository.findByHopital_id(Long.parseLong(hopital));
     }
 
     @PostMapping(value = "")
-    public Service save(@RequestBody final Service service) {
+    public Object save(@PathVariable(required = true) String hopital, @RequestBody final Service service) {
     	
-    	serviceRepository.save(service);
-        return getOne(String.valueOf(service.getId()));
+    	service.setHopital(hopitalRepository.findById(Long.parseLong(hopital)));
+    	service.setNatureService(natureServiceRepository.findById(service.getNatureService().getId()));
+    	
+    	return serviceRepository.save(service);
     }
 
     @PutMapping("")
-    public Service update(@RequestBody final Service service) {
+    public Service update(@PathVariable(required = true) String hopital, @RequestBody final Service service) {
 
-    	serviceRepository.save(service);
-        return getOne(String.valueOf(service.getId()));
+    	service.setHopital(hopitalRepository.findById(Long.parseLong(hopital)));
+    	service.setNatureService(natureServiceRepository.findById(service.getNatureService().getId()));
+        
+    	return serviceRepository.save(service);
     }
 
     @GetMapping("/{id}")
-    public Service getOne(@PathVariable(required = true) String id) {
+    public Service getOne(@PathVariable(required = true) String hopital, @PathVariable(required = true) String id) {
 
         return serviceRepository.findById(Long.parseLong(id));
     }
 
     @DeleteMapping(value = "/{id}")
-    public void delete(@PathVariable(required = true) String id) {
+    public void delete(@PathVariable(required = true) String hopital, @PathVariable(required = true) String id) {
 
         Service service = serviceRepository.findById(Long.parseLong(id));
         serviceRepository.delete(service);

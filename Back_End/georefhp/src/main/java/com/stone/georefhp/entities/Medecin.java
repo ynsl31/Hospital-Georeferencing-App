@@ -15,7 +15,6 @@ import lombok.Data;
 
 @Entity
 @Data
-@DiscriminatorValue("Medecin")
 public class Medecin extends Utilisateur {
 
 	private static final long serialVersionUID = 1L;
@@ -25,10 +24,7 @@ public class Medecin extends Utilisateur {
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Service service;
-	
-	@ManyToOne(cascade = CascadeType.ALL)
-	private Departement departement;
-	
+		
 	@OneToMany(mappedBy = "medecin")
 	private List<Consultation> consultations;
 

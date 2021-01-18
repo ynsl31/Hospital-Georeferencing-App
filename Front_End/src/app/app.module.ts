@@ -34,10 +34,6 @@ import { ServiceDetailsComponent } from './components/service/service-details/se
 import { ServiceListComponent } from './components/service/service-list/service-list.component';
 import { UpdateServiceComponent } from './components/service/update-service/update-service.component';
 import { AddServiceComponent } from './components/service/add-service/add-service.component';
-import { DepartementDetailsComponent } from './components/departement/departement-details/departement-details.component';
-import { DepartementListComponent } from './components/departement/departement-list/departement-list.component';
-import { AddDepartementComponent } from './components/departement/add-departement/add-departement.component';
-import { UpdateDepartementComponent } from './components/departement/update-departement/update-departement.component';
 import { AddVilleComponent } from './components/ville/add-ville/add-ville.component';
 import { VilleDetailsComponent } from './components/ville/ville-details/ville-details.component';
 import { VilleListComponent } from './components/ville/ville-list/ville-list.component';
@@ -87,10 +83,6 @@ import { AgmCoreModule } from '@agm/core';
     ServiceListComponent,
     UpdateServiceComponent,
     AddServiceComponent,
-    DepartementDetailsComponent,
-    DepartementListComponent,
-    AddDepartementComponent,
-    UpdateDepartementComponent,
     AddVilleComponent,
     VilleDetailsComponent,
     VilleListComponent,

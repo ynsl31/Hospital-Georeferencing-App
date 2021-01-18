@@ -14,29 +14,29 @@ export class ServiceService {
   // IYO CODE
   constructor(private http: HttpClient) { }
 
-  getServices(): Observable<any[]>{
+  getServices(hopital: number): Observable<any[]>{
 
-    return this.http.get<Service[]>(API_URLS.SERVICE_API);
+    return this.http.get<Service[]>(API_URLS.SERVICE_API  + `/${hopital}/services`);
   }
 
-  getService(id: number): Observable<any> {
+  getService(hopital: number, id: number): Observable<any> {
 
-    return this.http.get<Service>(API_URLS.SERVICE_API + `/${id}`);
+    return this.http.get<Service>(API_URLS.SERVICE_API   + `/${hopital}/services/${id}`);
   }
 
-  createService(service: Service): Observable<any> {
+  createService(hopital: number, service: Service): Observable<any> {
 
-    return this.http.post<Service>(API_URLS.SERVICE_API, service);
+    return this.http.post<Service>(API_URLS.SERVICE_API   + `/${hopital}/services`, service);
   }
 
-  updateService(service: Service): Observable<any> {
+  updateService(hopital: number, service: Service): Observable<any> {
 
-    return this.http.put(API_URLS.SERVICE_API, service);
+    return this.http.put(API_URLS.SERVICE_API  + `/${hopital}/services`, service);
   }
 
-  deleteService(id: number): Observable<any> {
+  deleteService(hopital: number, id: number): Observable<any> {
 
-    return this.http.delete(API_URLS.SERVICE_API + `/${id}`);
+    return this.http.delete(API_URLS.SERVICE_API + `/${hopital}/services/${id}`);
   }
 
 }

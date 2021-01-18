@@ -17,7 +17,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@JsonIgnoreProperties(value = {"natureService"}, allowSetters = true)
+@JsonIgnoreProperties(value = {"natureService", "listRendezVous", "hopital"}, allowSetters = true)
 public class Service implements Serializable  {
 
 
@@ -28,19 +28,15 @@ public class Service implements Serializable  {
 	private long id;
 
 	private String nom;
-	
-	private String heureDebut;
-	private String heureFin;
-	private int heureStep;
-	
-	@ManyToOne(cascade = CascadeType.ALL)
+		
+	@ManyToOne()
 	private NatureService natureService;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	private Departement departement;
-	
+	@ManyToOne()
+	private Hopital hopital;
+		
 	@OneToMany(mappedBy = "service")
-	private List<Medecin> medcins;
+	private List<Medecin> medecins;
 	
 	@OneToMany(mappedBy = "service")
 	private List<RendezVous> listRendezVous;

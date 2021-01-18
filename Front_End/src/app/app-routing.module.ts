@@ -12,7 +12,6 @@ import { NatureServiceListComponent } from "./components/nature-service/nature-s
 import { HopitalListComponent } from './components/hopital/hopital-list/hopital-list.component';
 import { VilleListComponent } from './components/ville/ville-list/ville-list.component';
 import { RegionListComponent } from './components/region/region-list/region-list.component';
-import { DepartementListComponent } from './components/departement/departement-list/departement-list.component';
 import { CategorieDetailsComponent } from './components/categorie/categorie-details/categorie-details.component';
 import { CategorieListComponent } from './components/categorie/categorie-list/categorie-list.component';
 
@@ -30,15 +29,11 @@ const routes: Routes = [
     // NATURE SERVICE
     {path: 'nature-services', component : NatureServiceListComponent},
 
-
-
-    
     // YNS CODE
-    {path: 'categories', component : CategorieListComponent},
-    {path: 'regions', component : RegionListComponent},
-    {path: 'villes', component : VilleListComponent},
     {path: 'hopitaux', component : HopitalListComponent},
-    {path: 'departements', component : DepartementListComponent},
+    {path: 'villes', component : VilleListComponent},
+    {path: 'regions', component : RegionListComponent},
+    {path: 'categories', component : CategorieListComponent},
 
 
   {path: 'test',component : TestComponent},
