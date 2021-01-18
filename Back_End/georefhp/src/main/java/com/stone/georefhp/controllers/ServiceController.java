@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.stone.georefhp.entities.Medecin;
 import com.stone.georefhp.entities.Service;
 import com.stone.georefhp.repository.HopitalRepository;
 import com.stone.georefhp.repository.NatureServiceRepository;
@@ -60,6 +61,12 @@ public class ServiceController {
     public Service getOne(@PathVariable(required = true) String hopital, @PathVariable(required = true) String id) {
 
         return serviceRepository.findById(Long.parseLong(id));
+    }
+    
+    @GetMapping("/{id}/medecins")
+    public List<Medecin> getMedecins(@PathVariable(required = true) String hopital, @PathVariable(required = true) String id) {
+
+        return serviceRepository.findById(Long.parseLong(id)).getMedecins();
     }
 
     @DeleteMapping(value = "/{id}")

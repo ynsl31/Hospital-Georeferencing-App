@@ -9,8 +9,8 @@ export class Utilisateur {
   prenom?: string;
 
   email?: string;
-  motDePasse?: string;
+  passwd?: string;
 
-  login?: string;
-  contacts?: Contact[];
+  tel?: String;
+  adresse?: String;
 }

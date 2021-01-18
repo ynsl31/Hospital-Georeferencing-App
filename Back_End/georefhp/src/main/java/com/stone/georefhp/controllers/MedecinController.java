@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.stone.georefhp.entities.Medecin;
 import com.stone.georefhp.repository.MedecinRepository;
+import com.stone.georefhp.repository.ServiceRepository;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -23,6 +24,9 @@ public class MedecinController {
 
 	@Autowired
 	MedecinRepository medecinRepository;
+	
+	@Autowired
+	ServiceRepository serviceRepository;
 	
 	@GetMapping("")
     public List<Medecin> findAll() {
@@ -33,13 +37,15 @@ public class MedecinController {
     @PostMapping(value = "")
     public Medecin save(@RequestBody final Medecin medecin) {
     	
+    	medecin.setService(serviceRepository.findById(medecin.getService().getId()));
     	medecinRepository.save(medecin);
         return getOne(String.valueOf(medecin.getId()));
     }
 
     @PutMapping("")
     public Medecin update(@RequestBody final Medecin medecin) {
-
+    	
+    	medecin.setService(serviceRepository.findById(medecin.getService().getId()));
     	medecinRepository.save(medecin);
         return getOne(String.valueOf(medecin.getId()));
     }
@@ -48,6 +54,12 @@ public class MedecinController {
     public Medecin getOne(@PathVariable(required = true) String id) {
 
         return medecinRepository.findById(Long.parseLong(id));
+    }
+    
+    @GetMapping("/service/{id}")
+    public List<Medecin> getByService(@PathVariable(required = true) String id) {
+
+        return medecinRepository.findByService_id(Long.parseLong(id));
     }
 
     @DeleteMapping(value = "/{id}")

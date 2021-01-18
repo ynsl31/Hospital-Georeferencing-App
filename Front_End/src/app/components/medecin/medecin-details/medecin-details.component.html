@@ -1,3 +1,59 @@
-<p>
-  medecin-details works!
-</p>
+<form class="myForm">
+
+  <div class="form-row">
+
+    <div class="form-group col-md-4">
+
+      <label for="name">nom*</label>
+      <input type="text" class="form-control" value="{{medecin?.nom}}" readonly
+        style="text-transform: capitalize;">
+    </div>
+    <div class="form-group col-md-4">
+
+      <label for="name">prenom*</label>
+      <input type="text" class="form-control" value="{{medecin?.prenom}}" readonly
+        style="text-transform: capitalize;">
+    </div>
+    <div class="form-group col-md-4">
+
+      <label for="name">telephone*</label>
+      <input type="text" class="form-control" value="{{medecin?.tel}}" readonly
+        style="text-transform: capitalize;">
+
+    </div>
+
+
+
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="name">adresse*</label>
+      <textarea class="form-control" value="{{medecin?.adresse}}" readonly
+        cols="30" rows="2" required style="text-transform: capitalize;"></textarea>
+    </div>
+  </div>
+
+  <div class="form-row">
+
+    <div class="form-group col-md-3">
+
+      <label for="name">matricule*</label>
+      <input type="text" class="form-control" value="{{medecin?.matricule}}" readonly
+        style="text-transform: capitalize;">
+    </div>
+    <div class="form-group col-md-5">
+
+      <label for="name">email*</label>
+      <input type="text" class="form-control" value="{{medecin?.email}}" readonly
+        style="text-transform: capitalize;">
+    </div>
+    <div class="form-group col-md-4">
+
+      <label for="name">mot de passe*</label>
+      <input type="password" class="form-control" value="{{medecin?.passwd}}" readonly
+        style="text-transform: capitalize;">
+    </div>
+
+  </div>
+</form>

@@ -9,12 +9,15 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 
 
 
 @Entity
 @Data
+@JsonIgnoreProperties(value = {}, allowSetters = true)
 public class Medecin extends Utilisateur {
 
 	private static final long serialVersionUID = 1L;
@@ -22,10 +25,10 @@ public class Medecin extends Utilisateur {
 	@Column(unique = true)
 	private String matricule;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne()
 	private Service service;
 		
-	@OneToMany(mappedBy = "medecin")
+	@OneToMany(mappedBy = "medecin", cascade = CascadeType.REFRESH)
 	private List<Consultation> consultations;
 
 }

@@ -1,81 +1,95 @@
 <section class="content">
 
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title"> <b> selectionnez l'hopital </b></h3>
+        </div>
+        <div class="card-body p-0" style="display: block;">
+            <form class="myForm">
+                <div class="form-row">
+
+                    <div class="form-group col-md-6">
+                        <label for="categorie">hopital</label>
+                        <select class="form-control mySelect" data-select="hopital">
+                            <option *ngFor="let option of hopitals " [value]="option.id">{{ option.nom }}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="categorie">service</label>
+                        <select class="form-control mySelect" data-select="service">
+                            <option *ngFor="let option of hopital?.services " [value]="option.id">{{ option.nom }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- Default box -->
     <div class="card">
         <div class="card-header">
             <h3 class="card-title"> <b> Gestion de {{componentName}} </b></h3>
 
             <div class="card-tools">
-              <a class="btn btn-header btn-action" data-toggle="modal" data-target=".add-medecin">
-                  <i class="fas fa-plus"></i>
-              </a>
+                <a class="btn btn-header btn-action" data-toggle="modal" data-target=".add-medecin">
+                    <i class="fas fa-plus"></i>
+                </a>
             </div>
         </div>
         <div class="card-body p-0" style="display: block;">
             <table class="table myTable">
                 <thead>
                     <tr>
-                        <th class="text-center" >
+                        <th class="text-center">
                             #
                         </th>
                         <th class="text-center">
-                            cin
+                            nom complet
                         </th>
                         <th class="text-center">
-                            Prenom
+                            hopital
                         </th>
-                        <th class="text-center" >
-                            nom
+                        <th class="text-center">
+                            service
                         </th>
-                        <th class="text-center" >
-                           Telephone
-                        </th>
-                        <th class="text-center" >
-                            adresse
-                        </th>
-                        <th class="text-center" >
+                        <th class="text-center">
                             <i class="fas fa-cog"></i>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let medecin of medecins;">
-                      <th class="text-center" >
-                        {{medecin.id}}
-                      </th>
-                      <td class="text-center" >
-                        {{medecin.cin | uppercase}}
-                      </td>
-                      <td class="text-center" >
-                        {{medecin.prenom | titlecase}}
-                      </td>
-                      <td class="text-center" >
-                        {{medecin.nom  | titlecase}}
-                      </td>
-                      <td class="text-center" >
-                        {{ (medecin.tel !== null)? medecin.tel : " -- " }}
-                      </td>
-                      <td class="text-center" >
-                        {{medecin.adresse}}
-                      </td>
+                        <th class="text-center">
+                            {{medecin.id}}
+                        </th>
 
-                      <td class="project-actions text-center">
-                          <a class="btn btn-action-view btn-action"
-                          (click)="selectedMedecin = medecin"
-                          data-toggle="modal" data-target=".show-medecin">
-                              <i class="fas fa-eye"></i>
-                          </a>
-                          <a class="btn btn-action-edit btn-action"
-                          (click)="selectedMedecin = medecin"
-                          data-toggle="modal" data-target=".edit-medecin">
-                              <i class="fas fa-edit"></i>
-                          </a>
-                          <a class="btn btn-action-delete btn-action"
-                          (click)="selectedMedecin = medecin"
-                          data-toggle="modal" data-target=".delete-medecin">
-                              <i class="fas fa-trash"></i>
-                          </a>
-                      </td>
+                        <td class="text-center">
+                            <strong>{{medecin.nom | uppercase}}</strong> {{medecin.prenom | uppercase}}
+                        </td>
+
+                        <td class="text-center">
+                            {{ hopital.nom }}
+                        </td>
+
+                        <td class="text-center">
+                            {{ medecin.service.nom }}
+                        </td>
+
+                        <td class="project-actions text-center">
+                            <a class="btn btn-action-view btn-action" (click)="selectedMedecin = medecin"
+                                data-toggle="modal" data-target=".show-medecin">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a class="btn btn-action-edit btn-action" (click)="selectedMedecin = medecin"
+                                data-toggle="modal" data-target=".edit-medecin">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a class="btn btn-action-delete btn-action" (click)="selectedMedecin = medecin"
+                                data-toggle="modal" data-target=".delete-medecin">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -86,7 +100,8 @@
 </section>
 
 <!-- add medecin -->
-<div class="modal fade add-medecin myModal"  tabindex="-1" role="dialog" aria-labelledby="myAddModalLabel" aria-hidden="true" style="display: none;">
+<div class="modal fade add-medecin myModal" tabindex="-1" role="dialog" aria-labelledby="myAddModalLabel"
+    aria-hidden="true" style="display: none;">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header">
@@ -94,72 +109,75 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
-                <!-- <app-add-medecin
-
-                (isClosed)="loadData($event)"
-                ></app-add-medecin> -->
+                <app-add-medecin [service]="service" (isClosed)="loadData($event)"></app-add-medecin>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- fin add medecin -->
 
 <!-- show medecin -->
-<div class="modal fade show-medecin myModal"  tabindex="-1" role="dialog" aria-labelledby="myAddModalLabel" aria-hidden="true" style="display: none;">
+<div class="modal fade show-medecin myModal" tabindex="-1" role="dialog" aria-labelledby="myAddModalLabel"
+    aria-hidden="true" style="display: none;">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="myAddModalLabel">AFFICHER LES INFORMATIONS DE <span>{{ selectedMedecin?.nom + ' ' + selectedMedecin?.prenom | uppercase }}</span></h4>
+                <h4 class="modal-title" id="myAddModalLabel">AFFICHER LES INFORMATIONS DE <span>{{ selectedMedecin?.nom
+                        + ' ' + selectedMedecin?.prenom | uppercase }}</span></h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
-              <!-- <app-medecin-details
+                <app-medecin-details
 
                 [medecin]="selectedMedecin">
 
-              </app-medecin-details> -->
+              </app-medecin-details>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- fin show medecin -->
 
 <!-- update medecin -->
-<div class="modal fade edit-medecin myModal"  tabindex="-1" role="dialog" aria-labelledby="myAddModalLabel" aria-hidden="true" style="display: none;">
+<div class="modal fade edit-medecin myModal" tabindex="-1" role="dialog" aria-labelledby="myAddModalLabel"
+    aria-hidden="true" style="display: none;">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="myAddModalLabel">MODIFIER LES INFORMATIONS DE <span>{{ selectedMedecin?.nom + ' ' + selectedMedecin?.prenom | uppercase }}</span></h4>
+                <h4 class="modal-title" id="myAddModalLabel">MODIFIER LES INFORMATIONS DE <span>{{ selectedMedecin?.nom
+                        + ' ' + selectedMedecin?.prenom | uppercase }}</span></h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
-              <!-- <app-update-medecin
+                <app-update-medecin
 
                 (isClosed)="loadData($event)"
                 [medecin]="selectedMedecin">
 
-              </app-update-medecin> -->
+              </app-update-medecin>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- fin update medecin -->
 
 <!-- delete medecin -->
-<div class="modal fade delete-medecin myModal"  tabindex="-1" role="dialog" aria-labelledby="myAddModalLabel" aria-hidden="true" style="display: none;">
+<div class="modal fade delete-medecin myModal" tabindex="-1" role="dialog" aria-labelledby="myAddModalLabel"
+    aria-hidden="true" style="display: none;">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="myAddModalLabel">SUPPRIMER LE CONDUCTEUR <span>{{ selectedMedecin?.nom + ' ' + selectedMedecin?.prenom | uppercase }}</span></h4>
+                <h4 class="modal-title" id="myAddModalLabel">SUPPRIMER LE CONDUCTEUR <span>{{ selectedMedecin?.nom + ' '
+                        + selectedMedecin?.prenom | uppercase }}</span></h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
 
-              <h4 class="delete-msg">Voulez-vous vraiment supprimer le medecin ?!</h4>
-              <!-- <input [(ngModel)]="deleteConfirmation" type="text"  parsley-trigger="change" required="" placeholder="confirmez la supprission en saisissant 'YES'" class="form-control delete-confirmation"> -->
+                <h4 class="delete-msg">Voulez-vous vraiment supprimer ce medecin ?!</h4>
+                <input [(ngModel)]="deleteConfirmation" type="text"  parsley-trigger="change" required="" placeholder="confirmez la supprission en saisissant 'YES'" class="form-control delete-confirmation">
 
 
             </div>
             <div class="modal-footer">
-                <button [disabled]="deleteConfirmation.toUpperCase() != 'YES'"
-                (click)="deleteClient()" type="button" class="btn btn-delete waves-effect waves-light">Supprimer</button>
+                <button [disabled]="deleteConfirmation.toUpperCase() != 'YES'" (click)="deleteClient()" type="button"
+                    class="btn btn-delete waves-effect waves-light">Supprimer</button>
                 <button type="button" class="btn btn-light waves-effect" data-dismiss="modal">Anuller</button>
             </div>
         </div><!-- /.modal-content -->

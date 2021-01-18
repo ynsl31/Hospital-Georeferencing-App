@@ -19,6 +19,11 @@ export class MedecinService {
     return this.http.get<Medecin[]>(API_URLS.MEDECIN_API);
   }
 
+  getMedecinsByService(id: number): Observable<any[]>{
+
+    return this.http.get<Medecin[]>(API_URLS.MEDECIN_API + `/service/${id}`);
+  }
+
   getMedecin(id: number): Observable<any> {
 
     return this.http.get<Medecin>(API_URLS.MEDECIN_API + `/${id}`);

@@ -66,7 +66,6 @@ export class AddServiceComponent implements OnInit {
 
   }
 
-
   addService(){
 
     let service = new Service();
