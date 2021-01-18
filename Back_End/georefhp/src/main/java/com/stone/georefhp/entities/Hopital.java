@@ -17,6 +17,7 @@ import lombok.Data;
 
 @Entity
 @Data
+
 public class Hopital implements Serializable {
 
 	private static final long serialVersionUID = 1L;

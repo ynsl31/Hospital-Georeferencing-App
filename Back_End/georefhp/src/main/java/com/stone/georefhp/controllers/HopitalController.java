@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.stone.georefhp.entities.Hopital;
 import com.stone.georefhp.repository.HopitalRepository;
+import com.stone.georefhp.repository.VilleRepository;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -24,10 +25,18 @@ public class HopitalController {
 	@Autowired
 	HopitalRepository hopitalRepository;
 	
+	@Autowired
+	VilleRepository villeRepository;
+	
 	@GetMapping("")
     public List<Hopital> findAll() {
 
         return hopitalRepository.findAll();
+    }
+	@GetMapping("/ville/{id}")
+    public List<Hopital> findByVilles(@PathVariable(required = true) String id) {
+
+        return hopitalRepository.findByVille(villeRepository.findById(Long.parseLong(id)));
     }
 
     @PostMapping(value = "")
