@@ -14,6 +14,7 @@ import { VilleListComponent } from './components/ville/ville-list/ville-list.com
 import { RegionListComponent } from './components/region/region-list/region-list.component';
 import { CategorieDetailsComponent } from './components/categorie/categorie-details/categorie-details.component';
 import { CategorieListComponent } from './components/categorie/categorie-list/categorie-list.component';
+import { WelcomeComponent } from './components/welcome/welcome/welcome.component';
 
 
 
@@ -39,7 +40,7 @@ const routes: Routes = [
   {path: 'test',component : TestComponent},
 
 ]},
-{path: 'test',component : TestComponent},
+{path: 'welcome',component : WelcomeComponent},
 {path: 'login',component : LoginComponent}
 
 ]

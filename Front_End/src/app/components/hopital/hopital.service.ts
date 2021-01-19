@@ -21,6 +21,10 @@ getHopital(id: number): Observable<any> {
   return this.http.get<Hopital>(API_URLS.HOPITAL_API + `/${id}`);
 }
 
+getHopitalByVille(id: number): Observable<any> {
+
+  return this.http.get<Hopital>(API_URLS.HOPITAL_API + `/ville/${id}`);
+}
 createHopital(Hopital: Hopital): Observable<any> {
 
   return this.http.post<Hopital>(API_URLS.HOPITAL_API, Hopital);

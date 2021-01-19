@@ -51,6 +51,9 @@ import { UpdateRegionComponent } from './components/region/update-region/update-
 import { HopitalListComponent } from './components/hopital/hopital-list/hopital-list.component';
 import { HopitalDetailsComponent } from './components/hopital/hopital-details/hopital-details.component';
 import { AgmCoreModule } from '@agm/core';
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
+import { WelcomeComponent } from './components/welcome/welcome/welcome.component';
+import { AddRdvComponent } from './components/rdv/add-rdv/add-rdv.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +101,9 @@ import { AgmCoreModule } from '@agm/core';
     RegionListComponent,
     RegionDetailsComponent,
     AddRegionComponent,
-    UpdateRegionComponent
+    UpdateRegionComponent,
+    WelcomeComponent,
+    AddRdvComponent
   ],
   imports: [
     BrowserModule,
@@ -106,10 +111,11 @@ import { AgmCoreModule } from '@agm/core';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB7sg-bGrHiYIbNBdQaHp5SHVFXo-0D_NA'
     }),
-
+    
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    AgmSnazzyInfoWindowModule
   ],
   providers: [],
   bootstrap: [AppComponent]

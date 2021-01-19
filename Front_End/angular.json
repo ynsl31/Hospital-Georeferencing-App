@@ -32,7 +32,9 @@
               "node_modules/admin-lte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css",
 
               "node_modules/admin-lte/docs_html/assets/css/adminlte.css",
+              "node_modules/snazzy-info-window/dist/snazzy-info-window.css",
               "src/styles.css"
+              
             ],
             "scripts": [
               "node_modules/admin-lte/plugins/jquery/jquery.js",
