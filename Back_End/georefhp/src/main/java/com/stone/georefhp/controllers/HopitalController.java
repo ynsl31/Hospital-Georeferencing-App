@@ -28,6 +28,7 @@ public class HopitalController {
 	
 	@Autowired
 	ServiceRepository serviceRepository;
+	@Autowired
 	VilleRepository villeRepository;
 	
 	@GetMapping("")

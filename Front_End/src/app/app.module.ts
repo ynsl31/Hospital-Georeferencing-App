@@ -54,6 +54,7 @@ import { AgmCoreModule } from '@agm/core';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import { WelcomeComponent } from './components/welcome/welcome/welcome.component';
 import { AddRdvComponent } from './components/rdv/add-rdv/add-rdv.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -115,7 +116,8 @@ import { AddRdvComponent } from './components/rdv/add-rdv/add-rdv.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AgmSnazzyInfoWindowModule
+    AgmSnazzyInfoWindowModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

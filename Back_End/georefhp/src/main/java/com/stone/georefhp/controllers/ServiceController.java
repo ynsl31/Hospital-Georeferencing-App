@@ -33,11 +33,23 @@ public class ServiceController {
 	@Autowired
 	HopitalRepository hopitalRepository;
 	
+	
 	@GetMapping("")
     public List<Service> findAll(@PathVariable(required = true) String hopital) {
 
         return serviceRepository.findByHopital_id(Long.parseLong(hopital));
     }
+	@GetMapping("nature/{id}")
+    public List<Service> findByNatureService(@PathVariable(required = true) String hopital,@PathVariable(required = true) String id) {
+
+        return serviceRepository.findByNatureService(this.natureServiceRepository.findById(Long.parseLong(id)));
+    }
+	@GetMapping("nom/{nom}")
+    public List<Service> findByNom(@PathVariable(required = true) String hopital, @PathVariable(required = true) String nom) {
+
+        return serviceRepository.findByNom(nom);
+    }
+
 
     @PostMapping(value = "")
     public Object save(@PathVariable(required = true) String hopital, @RequestBody final Service service) {

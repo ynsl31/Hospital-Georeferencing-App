@@ -18,6 +18,10 @@ export class ServiceService {
 
     return this.http.get<Service[]>(API_URLS.SERVICE_API  + `/${hopital}/services`);
   }
+  getServicesByNature(hopital: number,nature : number): Observable<any[]>{
+
+    return this.http.get<Service[]>(API_URLS.SERVICE_API  + `/${hopital}/services/nature/${nature}`);
+  }
 
   getService(hopital: number, id: number): Observable<any> {
 

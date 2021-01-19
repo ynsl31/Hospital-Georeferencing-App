@@ -41,7 +41,7 @@ const routes: Routes = [
 
 ]},
  {path: 'welcome',component : WelcomeComponent},
- {path: 'rdv',component : AddRdvComponent},
+ {path: 'rdv',component : AddRdvComponent },
 {path: 'login',component : LoginComponent}
 
 ]
