@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Hopital } from 'src/app/modals/Hopital';
 import { Region } from 'src/app/modals/Region';
 import { Ville } from 'src/app/modals/Ville';
@@ -16,7 +17,7 @@ import { VilleService } from '../../ville/ville.service';
 export class WelcomeComponent implements OnInit {
 
   
-  resConfirmation 
+  resConfirmation :string = ""
   welcomeForm: FormGroup
   villes : Ville[]
   regions : Region[]
@@ -32,7 +33,8 @@ export class WelcomeComponent implements OnInit {
     private hoitalService : HopitalService,
     private VilleService : VilleService,
     private categorieService : CategorieService,
-    private regionservice : RegionService
+    private regionservice : RegionService,
+    private route :Router
    ) { 
 
 
@@ -121,11 +123,11 @@ export class WelcomeComponent implements OnInit {
       () => { console.log('Ville by regin  Data loading ... Done')}
     );
   }
-  resehopital(){
+  resHopital(id){
 
     if (this.resConfirmation.toUpperCase() == 'YES') {
 
-      let id = this.selectedHopital.id;
+      this.route.navigate(['/rdv', { id: id }]);
 
       
 

@@ -54,13 +54,13 @@
             </div>
             <div class="modal-body"> 
                 <h4 class="delete-msg">Voulez-vous vraiment réserver un rdv ?!</h4>
-               <!--  <input [(ngModel)]="resConfirmation" type="text"  parsley-trigger="change" required="" placeholder="confirmez la reservation en saisissant 'YES'" class="form-control delete-confirmation"> 
- -->
-         <app-add-rdv></app-add-rdv>
+            <input [(ngModel)]="resConfirmation" type="text"  parsley-trigger="change" required="" placeholder="confirmez la reservation en saisissant 'YES'" class="form-control delete-confirmation"> 
+
+        
                
             </div>
             <div class="modal-footer">
-              <button [disabled]="resConfirmation.toUpperCase() != 'YES'" (click)="resHotel(selectedHopital.id)" type="button"
+              <button [disabled]="resConfirmation.toUpperCase() != 'YES'" (click)="resHopital(selectedHopital.id)" type="button"
                   class="btn btn-delete waves-effect waves-light">Reserver</button>
               <button type="button" class="btn btn-light waves-effect" data-dismiss="modal">Anuller</button>
           </div>
