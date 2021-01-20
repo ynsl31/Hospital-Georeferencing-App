@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -26,7 +27,7 @@ public class NatureService implements Serializable  {
 
 	private String nom;
 	
-	@OneToMany(mappedBy = "natureService")
-	private List<Service> services;
+	@ManyToOne()
+	private Service service;
 
 }

@@ -33,6 +33,7 @@ public class ServiceController {
 	@Autowired
 	HopitalRepository hopitalRepository;
 	
+	
 	@GetMapping("")
     public List<Service> findAll(@PathVariable(required = true) String hopital) {
 
@@ -43,7 +44,7 @@ public class ServiceController {
     public Object save(@PathVariable(required = true) String hopital, @RequestBody final Service service) {
     	
     	service.setHopital(hopitalRepository.findById(Long.parseLong(hopital)));
-    	service.setNatureService(natureServiceRepository.findById(service.getNatureService().getId()));
+    	//service.setNatureService(natureServiceRepository.findById(service.getNatureService().getId()));
     	
     	return serviceRepository.save(service);
     }
@@ -52,7 +53,7 @@ public class ServiceController {
     public Service update(@PathVariable(required = true) String hopital, @RequestBody final Service service) {
 
     	service.setHopital(hopitalRepository.findById(Long.parseLong(hopital)));
-    	service.setNatureService(natureServiceRepository.findById(service.getNatureService().getId()));
+//    	service.setNatureService(natureServiceRepository.findById(service.getNatureService().getId()));
         
     	return serviceRepository.save(service);
     }

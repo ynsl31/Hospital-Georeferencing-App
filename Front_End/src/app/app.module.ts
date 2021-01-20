@@ -53,7 +53,6 @@ import { HopitalDetailsComponent } from './components/hopital/hopital-details/ho
 import { AgmCoreModule } from '@agm/core';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import { WelcomeComponent } from './components/welcome/welcome/welcome.component';
-import { AddRdvComponent } from './components/rdv/add-rdv/add-rdv.component';
 
 @NgModule({
   declarations: [
@@ -103,7 +102,6 @@ import { AddRdvComponent } from './components/rdv/add-rdv/add-rdv.component';
     AddRegionComponent,
     UpdateRegionComponent,
     WelcomeComponent,
-    AddRdvComponent
   ],
   imports: [
     BrowserModule,
@@ -115,7 +113,7 @@ import { AddRdvComponent } from './components/rdv/add-rdv/add-rdv.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AgmSnazzyInfoWindowModule
+    AgmSnazzyInfoWindowModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

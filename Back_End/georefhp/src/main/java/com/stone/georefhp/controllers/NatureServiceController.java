@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.stone.georefhp.entities.NatureService;
+import com.stone.georefhp.entities.Service;
 import com.stone.georefhp.repository.NatureServiceRepository;
 
 @RestController
@@ -57,5 +58,10 @@ public class NatureServiceController {
         natureServiceRepository.delete(natureService);
         natureServiceRepository.flush();
     }
+  /*  @GetMapping(value = "/{id}/services")
+    public List<Service> getServicesByNature(@PathVariable(required = true) String id) {
+
+        return this.getOne(id).getServices();
+    }*/
     
 }

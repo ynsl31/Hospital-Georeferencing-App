@@ -15,7 +15,6 @@ import { RegionListComponent } from './components/region/region-list/region-list
 import { CategorieDetailsComponent } from './components/categorie/categorie-details/categorie-details.component';
 import { CategorieListComponent } from './components/categorie/categorie-list/categorie-list.component';
 import { WelcomeComponent } from './components/welcome/welcome/welcome.component';
-import { AddRdvComponent } from './components/rdv/add-rdv/add-rdv.component';
 
 
 const routes: Routes = [
@@ -41,7 +40,6 @@ const routes: Routes = [
 
 ]},
  {path: 'welcome',component : WelcomeComponent},
- {path: 'rdv',component : AddRdvComponent},
 {path: 'login',component : LoginComponent}
 
 ]
