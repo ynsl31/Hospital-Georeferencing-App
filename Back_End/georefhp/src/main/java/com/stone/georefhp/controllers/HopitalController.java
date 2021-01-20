@@ -28,17 +28,14 @@ public class HopitalController {
 	
 	@Autowired
 	ServiceRepository serviceRepository;
+	
+	@Autowired
 	VilleRepository villeRepository;
 	
 	@GetMapping("")
     public List<Hopital> findAll() {
 
         return hopitalRepository.findAll();
-    }
-	@GetMapping("/ville/{id}")
-    public List<Hopital> findByVilles(@PathVariable(required = true) String id) {
-
-        return hopitalRepository.findByVille(villeRepository.findById(Long.parseLong(id)));
     }
 
     @PostMapping(value = "")
@@ -60,8 +57,7 @@ public class HopitalController {
 
         return hopitalRepository.findById(Long.parseLong(id));
     }
-    
-    
+        
 
     @DeleteMapping(value = "/{id}")
     public void delete(@PathVariable(required = true) String id) {
@@ -69,6 +65,13 @@ public class HopitalController {
         Hopital hopital = hopitalRepository.findById(Long.parseLong(id));
         hopitalRepository.delete(hopital);
         hopitalRepository.flush();
+    }
+    
+    @GetMapping("/ville/{id}")
+    public List<Hopital> findByVilles(@PathVariable(required = true) String id) {
+
+        return hopitalRepository.findByVille(villeRepository.findById(Long.parseLong(id)));
+    	
     }
 
 }

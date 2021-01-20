@@ -57,18 +57,18 @@ public class ServiceController {
     	return serviceRepository.save(service);
     }
 
+    @GetMapping("/nature-service/{id}")
+    public List<Service> getOne(@PathVariable(required = true) String hopital, @PathVariable(required = true) String id) {
+
+        return serviceRepository.findByHopital_idAndNatureService_id(Long.parseLong(hopital), Long.parseLong(id));
+    }
+    
     @GetMapping("/{id}")
-    public Service getOne(@PathVariable(required = true) String hopital, @PathVariable(required = true) String id) {
+    public Service getServicesByNature(@PathVariable(required = true) String hopital, @PathVariable(required = true) String id) {
 
         return serviceRepository.findById(Long.parseLong(id));
     }
     
-    @GetMapping("/{id}/medecins")
-    public List<Medecin> getMedecins(@PathVariable(required = true) String hopital, @PathVariable(required = true) String id) {
-
-        return serviceRepository.findById(Long.parseLong(id)).getMedecins();
-    }
-
     @DeleteMapping(value = "/{id}")
     public void delete(@PathVariable(required = true) String hopital, @PathVariable(required = true) String id) {
 

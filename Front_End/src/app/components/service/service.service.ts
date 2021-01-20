@@ -39,4 +39,8 @@ export class ServiceService {
     return this.http.delete(API_URLS.SERVICE_API + `/${hopital}/services/${id}`);
   }
 
+  getServicesByHopitatAndNatureService(hopital: number, id: number): Observable<any> {
+
+    return this.http.get<Service>(API_URLS.SERVICE_API   + `/${hopital}/services/nature-service/${id}`);
+  }
 }

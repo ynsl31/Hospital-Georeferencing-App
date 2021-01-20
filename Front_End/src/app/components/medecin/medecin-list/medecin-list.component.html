@@ -37,8 +37,8 @@
                 </a>
             </div>
         </div>
-        <div class="card-body p-0" style="display: block;">
-            <table class="table myTable">
+        <div class="card-body p-0" style="display: block;" *ngIf="medecins?.length > 0  else elseBlock" >
+            <table class="table myTable"  id="myDataTable">
                 <thead>
                     <tr>
                         <th class="text-center">
@@ -94,6 +94,9 @@
                 </tbody>
             </table>
         </div>
+
+        <ng-template #elseBlock><h4 class="no-content">aucune {{componentName}} Ajoutée</h4></ng-template>
+
         <!-- /.card-body -->
     </div>
     <!-- /.card -->

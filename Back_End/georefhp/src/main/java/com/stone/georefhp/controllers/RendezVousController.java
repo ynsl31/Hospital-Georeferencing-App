@@ -1,5 +1,6 @@
 package com.stone.georefhp.controllers;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,16 +14,26 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.stone.georefhp.entities.Patient;
 import com.stone.georefhp.entities.RendezVous;
+import com.stone.georefhp.entities.Service;
+import com.stone.georefhp.repository.PatientRepository;
 import com.stone.georefhp.repository.RendezVousRepository;
+import com.stone.georefhp.repository.ServiceRepository;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("api/rendezVous")
+@RequestMapping("api/rendez-vous")
 public class RendezVousController {
 
 	@Autowired
 	RendezVousRepository rendezVousRepository;
+	
+	@Autowired
+	PatientRepository patientRepository;
+	
+	@Autowired
+	ServiceRepository serviceRepository;
 	
 	@GetMapping("")
     public List<RendezVous> findAll() {
@@ -31,10 +42,19 @@ public class RendezVousController {
     }
 
     @PostMapping(value = "")
-    public RendezVous save(@RequestBody final RendezVous rendezVous) {
+    public Object save(@RequestBody final RendezVous rendezVous) {
     	
+    	Patient patient = patientRepository.save(rendezVous.getPatient());
+    	
+    	rendezVous.setDateCreation(new Date());
+    	
+    	rendezVous.setStatut("ACTIVE");
+    	
+    	
+    	rendezVous.setPatient(patient);
     	rendezVousRepository.save(rendezVous);
-        return getOne(String.valueOf(rendezVous.getId()));
+
+    	return getOne(String.valueOf(rendezVous.getId()));
     }
 
     @PutMapping("")

@@ -5,3 +5,5 @@
 [class*='sidebar-light-'] .nav-sidebar > .nav-item.menu-open > .nav-link, [class*='sidebar-light-']
 .nav-sidebar > .nav-item:hover > .nav-link { background-color: #00529c; color: #ffffff; } [class*='sidebar-light-']
 .nav-treeview > .nav-item > .nav-link:hover { background-color: #67aedf; }
+a.nav-link { text-transform: uppercase; letter-spacing: 1px; font-size: 14px; } 
+a.nav-link i.fas { margin-right: 10px; }

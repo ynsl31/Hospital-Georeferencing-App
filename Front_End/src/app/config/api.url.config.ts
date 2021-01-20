@@ -35,4 +35,7 @@ export const API_URLS = {
    //Regions
    REGION_API: BASE + ':' + PORT_APP + '/' + PATH + '/regions',
 
+   //RENDEZ-VOUS
+   RD_API: BASE + ':' + PORT_APP + '/' + PATH + '/rendez-vous',
+
 };

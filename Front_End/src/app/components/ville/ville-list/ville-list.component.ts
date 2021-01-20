@@ -26,13 +26,27 @@ export class VilleListComponent implements OnInit {
     this.loadData();
   }
 
+  dataTable(){
+
+    $( document ).ready(function() {
+      
+      $('#myDataTable').DataTable({
+        ordering:  false,
+        "bLengthChange" : false,
+        "bInfo":false,
+      })
+
+     });
+    
+  }
+
   loadData(){
 
     this.Villeservice.getVilles().subscribe(
       data => {
 
         this.villes = data
-        //this.initClient
+        this.dataTable()
       },
       error => {
         console.log("error")
