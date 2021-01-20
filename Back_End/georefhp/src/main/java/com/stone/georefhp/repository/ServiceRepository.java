@@ -12,6 +12,6 @@ public interface ServiceRepository extends JpaRepository<Service, Long>{
 	Service findById(long id);
 	
 	List<Service> findByHopital_id(long id);
-	List<Service> findByNatureService(NatureService id);
+	//List<Service> findByNatureService(NatureService id);
 	List<Service> findByNom(String nom);
 }

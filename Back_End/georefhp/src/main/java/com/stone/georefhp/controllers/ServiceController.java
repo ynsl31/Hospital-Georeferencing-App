@@ -39,11 +39,11 @@ public class ServiceController {
 
         return serviceRepository.findByHopital_id(Long.parseLong(hopital));
     }
-	@GetMapping("nature/{id}")
+/*	@GetMapping("nature/{id}")
     public List<Service> findByNatureService(@PathVariable(required = true) String hopital,@PathVariable(required = true) String id) {
 
         return serviceRepository.findByNatureService(this.natureServiceRepository.findById(Long.parseLong(id)));
-    }
+    }*/
 	@GetMapping("nom/{nom}")
     public List<Service> findByNom(@PathVariable(required = true) String hopital, @PathVariable(required = true) String nom) {
 
@@ -55,7 +55,7 @@ public class ServiceController {
     public Object save(@PathVariable(required = true) String hopital, @RequestBody final Service service) {
     	
     	service.setHopital(hopitalRepository.findById(Long.parseLong(hopital)));
-    	service.setNatureService(natureServiceRepository.findById(service.getNatureService().getId()));
+    	//service.setNatureService(natureServiceRepository.findById(service.getNatureService().getId()));
     	
     	return serviceRepository.save(service);
     }
@@ -64,7 +64,7 @@ public class ServiceController {
     public Service update(@PathVariable(required = true) String hopital, @RequestBody final Service service) {
 
     	service.setHopital(hopitalRepository.findById(Long.parseLong(hopital)));
-    	service.setNatureService(natureServiceRepository.findById(service.getNatureService().getId()));
+//    	service.setNatureService(natureServiceRepository.findById(service.getNatureService().getId()));
         
     	return serviceRepository.save(service);
     }
