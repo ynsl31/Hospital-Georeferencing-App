@@ -8,6 +8,8 @@ const PORT_APP = '9000';
 
 export const API_URLS = {
 
+  //AUTENTIFICATION
+  AUTH_API : BASE + ':' + PORT_APP + '/' + PATH + '/auth/',
   // UTILISATEUR
   UTILISATEUR_API: BASE + ':' + PORT_APP + '/' + PATH + '/utilisateurs',
 

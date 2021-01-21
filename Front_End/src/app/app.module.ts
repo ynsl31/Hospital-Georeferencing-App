@@ -55,6 +55,10 @@ import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import { WelcomeComponent } from './components/welcome/welcome/welcome.component';
 import { AddRdvComponent } from './components/rdv/add-rdv/add-rdv.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BoardAdminComponent } from './components/utilisateur/admin/board-admin/board-admin.component';
+import { BoardMedecinComponent } from './components/medecin/board-medecin/board-medecin.component';
+import { BoardUtilisateurComponent } from './components/utilisateur/board-utilisateur/board-utilisateur.component';
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -104,7 +108,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AddRegionComponent,
     UpdateRegionComponent,
     WelcomeComponent,
-    AddRdvComponent
+    AddRdvComponent,
+    BoardAdminComponent,
+    BoardMedecinComponent,
+    BoardUtilisateurComponent
   ],
   imports: [
     BrowserModule,
@@ -119,7 +126,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AgmSnazzyInfoWindowModule,
     NgbModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

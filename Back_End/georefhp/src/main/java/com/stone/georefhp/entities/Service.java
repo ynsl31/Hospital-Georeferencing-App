@@ -17,7 +17,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@JsonIgnoreProperties(value = {"natureService", "listRendezVous", "hopital", "medecins"}, allowSetters = true)
+@JsonIgnoreProperties(value = {"natureServices", "listRendezVous", "hopital", "medecins"}, allowSetters = true)
 public class Service implements Serializable  {
 
 

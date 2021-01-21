@@ -16,7 +16,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@JsonIgnoreProperties(value = {"service"}, allowSetters = true)
+
 
 public class NatureService implements Serializable  {
 
