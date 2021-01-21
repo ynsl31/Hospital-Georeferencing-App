@@ -8,7 +8,8 @@ agm-map {
 .btn-form-submit:hover{background-color:#fff;color:#5fbfce}
 button.close{color:#fff;transition:.6s}
 
-.masthead { height: 65vh; min-height: 350px; background-image: url('../../../../assets/img/wall.jpg'); -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;}
+.masthead { height: 100vh; min-height: 350px; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;}
+.w-wall{background-image: url('../../../../assets/img/wall.jpg');}
 
 .gm-style-iw.gm-style-iw-c { border-radius: 0; background-color: #00529c; padding: 20px !important; } 
 .gm-style-iw-d {overflow: auto !important;} 
@@ -60,4 +61,24 @@ a.btn.btn-primary.btn-res:hover { background-color: #00529c; color: #fff; border
 a.brand-link {
   background-color: #fff2;
   border: 1px solid #fff1;
+}
+h2, h3 {
+  color: #fff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 100;
+  padding: 20px;
+}
+h3 {
+  padding: 0 !important;
+  letter-spacing: 18px !important;
+  font-size: 15px;
+}
+
+h2 strong, h3 strong {
+  font-weight: 900;
+  letter-spacing: 5px;
+  color: #67aedf;
+  background-color: #fff;
+  padding: 0px 15px;
 }

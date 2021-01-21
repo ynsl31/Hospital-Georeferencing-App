@@ -35,7 +35,7 @@
               "node_modules/snazzy-info-window/dist/snazzy-info-window.css",
               "node_modules/smartwizard/dist/css/smart_wizard_all.min.css",
               "node_modules/toastr/build/toastr.min.css",
-          
+
               "src/styles.css"
              
             ],
@@ -60,6 +60,7 @@
               "node_modules/admin-lte/plugins/chart.js/Chart.js",
               "node_modules/admin-lte/dist/js/pages/dashboard2.js",
               "node_modules/toastr/build/toastr.min.js"
+
             ]
           },
           "configurations": {

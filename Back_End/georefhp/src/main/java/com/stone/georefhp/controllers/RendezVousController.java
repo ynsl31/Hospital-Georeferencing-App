@@ -45,11 +45,13 @@ public class RendezVousController {
     public Object save(@RequestBody final RendezVous rendezVous) {
     	
     	Patient patient = patientRepository.save(rendezVous.getPatient());
+    	Service service = serviceRepository.findById(rendezVous.getService().getId());
     	
     	rendezVous.setDateCreation(new Date());
     	
     	rendezVous.setStatut("ACTIVE");
     	
+    	rendezVous.setHopital(service.getHopital());
     	
     	rendezVous.setPatient(patient);
     	rendezVousRepository.save(rendezVous);
@@ -76,6 +78,28 @@ public class RendezVousController {
     	RendezVous rendezVous = rendezVousRepository.findById(Long.parseLong(id));
         rendezVousRepository.delete(rendezVous);
         rendezVousRepository.flush();
+    }
+    
+    @PostMapping("/patient")
+    public List<RendezVous> getByPatient(@RequestBody final Patient patient) {
+    	
+    	if (patientRepository.existsByEmailAndPasswd(patient.getEmail(), patient.getPasswd())) {
+    		
+    		Patient p = patientRepository.findByEmailAndPasswd(patient.getEmail(), patient.getPasswd());
+    		return rendezVousRepository.findByPatient_id(p.getId());
+    	}
+    		
+    	
+    	return null;
+    	
+    }
+    
+    @PostMapping("/{id}/desactive")
+    public RendezVous desactive(@PathVariable(required = true) String id) {
+
+    	RendezVous rendezVous = rendezVousRepository.findById(Long.parseLong(id));
+    	rendezVous.setStatut("DESACTIVE");
+        return rendezVousRepository.save(rendezVous);
     }
     
 }

@@ -57,6 +57,7 @@ import { BoardAdminComponent } from './components/utilisateur/admin/board-admin/
 import { BoardMedecinComponent } from './components/medecin/board-medecin/board-medecin.component';
 import { BoardUtilisateurComponent } from './components/utilisateur/board-utilisateur/board-utilisateur.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import { RendezVousListComponent } from './components/rendez-vous/rendez-vous-list/rendez-vous-list.component';
 
 @NgModule({
   declarations: [
@@ -108,7 +109,8 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     WelcomeComponent,
     BoardAdminComponent,
     BoardMedecinComponent,
-    BoardUtilisateurComponent
+    BoardUtilisateurComponent,
+    RendezVousListComponent
   ],
   imports: [
     BrowserModule,

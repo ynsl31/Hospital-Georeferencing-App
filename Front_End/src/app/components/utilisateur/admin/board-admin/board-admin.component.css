@@ -3,6 +3,32 @@
 }
 .inner{
  color: white;
+ padding: 25px 10px;
 
+}
+
+.small-box h3 { font-size: 60px !important; font-weight: 900; } 
+.small-box p { font-size: 30px; letter-spacing: 4px; text-transform: uppercase; background-color: #004a8c; position: absolute; top: 0; right: 0; padding: 7px 30px; border: 1px solid #fff1; }
+
+.row.wlc {
+    margin: 0;
+    padding: 150px;
+    text-align: center;
+    background-color: #00529c12;
+    height: calc(100vh - 310px);
+    align-content: center;
+}
+
+.row.wlc h1 {
+    margin: 0 auto;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    font-weight: 100;
+    color: #00529c;
+}
+
+.row.wlc h1 strong {
+    font-weight: 900;
+    text-decoration: underline;
 }
 

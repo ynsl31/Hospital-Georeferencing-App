@@ -10,10 +10,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 
 @Entity
 @Data
+@JsonIgnoreProperties(value = {"patient"}, allowSetters = true)
 public class RendezVous implements Serializable  {
 
 	private static final long serialVersionUID = 1L;
@@ -37,5 +40,8 @@ public class RendezVous implements Serializable  {
 	
 	@ManyToOne()
 	private Service service;
+	
+	@ManyToOne()
+	private Hopital hopital;
 
 }

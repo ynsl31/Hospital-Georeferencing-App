@@ -56,9 +56,9 @@ export class WelcomeComponent implements OnInit {
 
     private serviceService : ServiceService,
     private natureServiceService : NatureServiceService,
-    private rendezVousService: RendezVousService
-    
-  ) {
+    private rendezVousService: RendezVousService,
+
+    ) {
 
 
     this.welcomeForm = form.group({
@@ -91,9 +91,21 @@ export class WelcomeComponent implements OnInit {
 
   }
   ngOnInit() {
+    
     this.lat = 33.34785;
     this.lng = -4.3333
     this.loadData();
+
+    $( "input.timepicker" ).bind( "click", function() {
+      
+    });
+
+
+    $(document).ready(function(){
+
+      
+    });
+
   }
 
   loadData() {
@@ -212,7 +224,6 @@ export class WelcomeComponent implements OnInit {
 
     this.services = []
     this.rendezVous.reset();
-
   }
 
   addRendezVous(){

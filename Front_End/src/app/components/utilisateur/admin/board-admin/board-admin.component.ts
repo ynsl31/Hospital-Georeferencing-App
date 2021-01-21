@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HopitalService } from 'src/app/components/hopital/hopital.service';
 import { MedecinService } from 'src/app/components/medecin/medecin.service';
+import { RendezVousService } from 'src/app/components/rendez-vous/rendez-vous.service';
 import { Hopital } from 'src/app/modals/Hopital';
 import { Medecin } from 'src/app/modals/Medecin';
+import { RendezVous } from 'src/app/modals/RendezVous';
 
 @Component({
   selector: 'app-board-admin',
@@ -14,7 +16,14 @@ hopitaux : number
 listhopitaux : Hopital[]
 medecins : number
 listmedecin  : Medecin[]
-  constructor(private medecinService : MedecinService,private hopitalService : HopitalService) { }
+
+rendezVous: RendezVous[]
+
+  constructor(
+    private medecinService : MedecinService,
+    private hopitalService : HopitalService,
+    private rendezVousService: RendezVousService
+    ) { }
 
   ngOnInit() {
     this.loadData();
@@ -47,6 +56,21 @@ listmedecin  : Medecin[]
       },
       () => { console.log('Medecin Data loading ... Done')}
     );
+
+
+    this.rendezVousService.getRendezVouss().subscribe(
+      data => {
+
+        this.rendezVous = data
+
+      },
+      error => {
+        console.log("error")
+      },
+      () => { console.log('Medecin Data loading ... Done')}
+    );
+
+
   }
   
   

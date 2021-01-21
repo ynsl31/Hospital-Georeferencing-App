@@ -20,6 +20,10 @@ public class Patient extends Utilisateur {
 		super(username2, email2, encode);
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Patient() {
+		
+	}
 
 	private static final long serialVersionUID = 1L;
 

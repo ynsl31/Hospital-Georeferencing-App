@@ -1,0 +1,151 @@
+<nav class="navbar mynavbar">
+    <a class="navbar-brand" class="nav-logo" routerLink="">
+        <img src="../../../../assets/img/logo.png" alt="" loading="lazy">
+    </a>
+</nav>
+<section class="content">
+    <form [formGroup]="pationForm" class="myForm">
+
+        <div class="form-row">
+
+            <div class="form-group col-md-6">
+                <label for="name">email</label>
+                <input type="email" class="form-control" formControlName="email"
+                    placeholder="ex : a.idrissihassani@emsi-edu.com" required>
+                <p class="small alert-danger msg-error"
+                    *ngIf="pationForm.controls.email.invalid && (pationForm.controls.email.touched || pationForm.controls.email.dirty)">
+                    Ce champ est null ou mal saisi</p>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="name">mot de passe</label>
+                <input type="password" class="form-control" formControlName="passwd"
+                    placeholder="******************" required>
+                <p class="small alert-danger msg-error"
+                    *ngIf="pationForm.controls.passwd.invalid && (pationForm.controls.passwd.touched || pationForm.controls.passwd.dirty)">
+                    Ce champ est null ou mal saisi</p>
+            </div>
+
+        </div>
+
+
+        <button type="submit" class="btn btn-form-submit"
+            [disabled]="pationForm.pristine || pationForm.invalid || pationForm.controls.errors"
+            (click)="loadData()">Lister mes rendez-vous</button>
+
+    </form>
+</section>
+
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title"> <b>{{componentName}}</b></h3>
+        </div>
+        <div class="card-body p-0" style="display: block;">
+            <table class="table myTable" id="myDataTable">
+                <thead>
+                    <tr>
+                        <th class="text-center">
+                            #
+                        </th>
+                        <th class="text-center">
+                            hopital
+                        </th>
+                        <th class="text-center">
+                            le
+                        </th>
+                        <th class="text-center">
+                            à
+                        </th>
+                        <th class="text-center">
+                            nature service
+                        </th>
+                        <th class="text-center">
+                            service
+                        </th>
+                        <th class="text-center">
+                            statut
+                        </th>
+                        <th class="text-center">
+                            fait le
+                        </th>
+
+                        <th class="text-center">
+                            <i class="fas fa-cog"></i>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let rendezVous of rendezVousList;">
+                        <th class="text-center">
+                            {{rendezVous.id}}
+                        </th>
+                        <td class="text-center">
+                            {{rendezVous.hopital.nom}}
+                        </td>
+                        <td class="text-center">
+                            {{rendezVous.dateRdv | date}}
+                        </td>
+                        <td class="text-center">
+                            {{rendezVous.heureRdv}}
+                        </td>
+                        <td class="text-center">
+                            {{rendezVous.service.natureService.nom}}
+                        </td>
+                        <td class="text-center">
+                            {{rendezVous.service.nom}}
+                        </td>
+                        <td class="text-center">
+                          <span class="badge" [ngClass]="{
+                                'ACTIVE':'badge-success',
+                                'DESACTIVE':'badge-warning'
+                              }[rendezVous.statut]">
+
+                            {{rendezVous.statut}}
+                        </span>
+                        </td>
+                        <td class="text-center">
+                            {{rendezVous.dateCreation | date}}
+                        </td>
+
+                        <td class="project-actions text-center">
+                            <a class="btn btn-action-delete btn-action" (click)="selectedRD = rendezVous"
+                                title="Annuler" data-toggle="modal" data-target=".des-rendezVous">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</section>
+
+<!-- delete RV -->
+<div class="modal fade des-rendezVous myModal" tabindex="-1" role="dialog" aria-labelledby="myAddModalLabel"
+    aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myAddModalLabel">desactiver le rendez-vous </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+
+                <h4 class="delete-msg">Voulez-vous vraiment desactiver ce rendez-vous ?!</h4>
+                <input [(ngModel)]="deleteConfirmation" type="text"  parsley-trigger="change" required="" placeholder="confirmez la supprission en saisissant 'YES'" class="form-control delete-confirmation">
+
+
+            </div>
+            <div class="modal-footer">
+                <button [disabled]="deleteConfirmation.toUpperCase() != 'YES'" (click)="desactiverRd()" type="button"
+                    class="btn btn-delete waves-effect waves-light">Desactiver</button>
+                <button type="button" class="btn btn-light waves-effect" data-dismiss="modal">Anuller</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- fin delete RV -->

@@ -18,6 +18,7 @@ import { WelcomeComponent } from './components/welcome/welcome/welcome.component
 import { BoardAdminComponent } from './components/utilisateur/admin/board-admin/board-admin.component';
 import { AuthGuardService } from './_helpers/auth.guard.service';
 import { Role } from './modals/Role';
+import { RendezVousListComponent } from './components/rendez-vous/rendez-vous-list/rendez-vous-list.component';
 
 
 const routes: Routes = [
@@ -48,7 +49,9 @@ const routes: Routes = [
     data: { roles: [Role.Admin]}},
   {path: 'test',component : TestComponent},
 ]},
- {path: 'welcome',component : WelcomeComponent},
+ {path: 'rendez-vous',component : WelcomeComponent},
+ {path: 'mes-rendez-vous',component : RendezVousListComponent},
+
 {path: 'login',component : LoginComponent}
 
 ]

@@ -21,3 +21,17 @@
 .login-logo a {
     color:#0a4883;
 }
+
+div#login {
+  padding: 50px;
+  border-radius: 13px/100px;
+}
+
+.login-box, .register-box {
+  width: 450px;
+}
+
+.card {
+  background-color: #0000;
+  box-shadow: none;
+}

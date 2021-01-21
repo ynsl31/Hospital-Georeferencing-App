@@ -38,15 +38,19 @@ this.passwd =encode;
 	
 	private String nom;
 	private String prenom;
-	@Column(unique = true, nullable = false)
+	
+	@Column(unique = true, nullable = true)
 	private String username;
+	
 	@Column(unique = true, nullable = false)
 	private String email;
-		
+	
+	@Column(nullable = true)
 	private String tel;
 	
 	@ManyToMany(fetch = FetchType.LAZY)
 	private Set<Role> roles = new HashSet<>();
+	
 	private String passwd;
 	
 	private String adresse;

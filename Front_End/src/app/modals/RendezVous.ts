@@ -1,3 +1,4 @@
+import { Hopital } from "./Hopital";
 import { Patient } from "./Patient";
 import { Service } from "./Service";
 
@@ -14,5 +15,7 @@ export class RendezVous {
 
     patient?: Patient;
     service?: Service;
+
+    hopital?: Hopital;
 
 }
