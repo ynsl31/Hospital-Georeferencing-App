@@ -17,6 +17,8 @@ import { ServiceService } from '../../service/service.service';
 import { VilleService } from '../../ville/ville.service';
 
 declare var $: any;
+declare var toastr:any;
+
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
@@ -246,8 +248,14 @@ export class WelcomeComponent implements OnInit {
     this.rendezVousService.createRendezVous(rendezVous).subscribe(
       data => {
 
+        toastr.options = { "positionClass": "toast-bottom-right", }
+        toastr.success('votre Rendez-vous est bien enregistrer', 'Bien Enregistrer')
+    
         this.rendezVous.reset();
 
+        $('.modal').modal('hide');
+
+        
       },
       error => {
         console.log("error");
