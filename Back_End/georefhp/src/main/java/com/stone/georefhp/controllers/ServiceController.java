@@ -39,17 +39,6 @@ public class ServiceController {
 
         return serviceRepository.findByHopital_id(Long.parseLong(hopital));
     }
-/*	@GetMapping("nature/{id}")
-    public List<Service> findByNatureService(@PathVariable(required = true) String hopital,@PathVariable(required = true) String id) {
-
-        return serviceRepository.findByNatureService(this.natureServiceRepository.findById(Long.parseLong(id)));
-    }*/
-	@GetMapping("nom/{nom}")
-    public List<Service> findByNom(@PathVariable(required = true) String hopital, @PathVariable(required = true) String nom) {
-
-        return serviceRepository.findByNom(nom);
-    }
-
 
     @PostMapping(value = "")
     public Object save(@PathVariable(required = true) String hopital, @RequestBody final Service service) {
@@ -69,18 +58,18 @@ public class ServiceController {
     	return serviceRepository.save(service);
     }
 
+    @GetMapping("/nature-service/{id}")
+    public List<Service> getOne(@PathVariable(required = true) String hopital, @PathVariable(required = true) String id) {
+
+        return serviceRepository.findByHopital_idAndNatureService_id(Long.parseLong(hopital), Long.parseLong(id));
+    }
+    
     @GetMapping("/{id}")
-    public Service getOne(@PathVariable(required = true) String hopital, @PathVariable(required = true) String id) {
+    public Service getServicesByNature(@PathVariable(required = true) String hopital, @PathVariable(required = true) String id) {
 
         return serviceRepository.findById(Long.parseLong(id));
     }
     
-    @GetMapping("/{id}/medecins")
-    public List<Medecin> getMedecins(@PathVariable(required = true) String hopital, @PathVariable(required = true) String id) {
-
-        return serviceRepository.findById(Long.parseLong(id)).getMedecins();
-    }
-
     @DeleteMapping(value = "/{id}")
     public void delete(@PathVariable(required = true) String hopital, @PathVariable(required = true) String id) {
 

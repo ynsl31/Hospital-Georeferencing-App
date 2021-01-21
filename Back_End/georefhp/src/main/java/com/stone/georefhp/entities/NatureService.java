@@ -16,8 +16,7 @@ import lombok.Data;
 
 @Entity
 @Data
-
-
+@JsonIgnoreProperties(value = {"services"}, allowSetters = true)
 public class NatureService implements Serializable  {
 
 	private static final long serialVersionUID = 1L;
@@ -28,7 +27,7 @@ public class NatureService implements Serializable  {
 
 	private String nom;
 	
-	@ManyToOne()
-	private Service service;
+	@OneToMany(mappedBy = "natureService")
+	private List<Service> services;
 
 }

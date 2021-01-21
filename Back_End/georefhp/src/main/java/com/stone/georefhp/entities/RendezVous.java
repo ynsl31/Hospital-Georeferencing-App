@@ -23,6 +23,8 @@ public class RendezVous implements Serializable  {
 	private long id;
 
 	private Date dateRdv;
+	private String heureRdv;
+	
 	private String statut;
 
 	private Date dateCreation;
@@ -33,7 +35,7 @@ public class RendezVous implements Serializable  {
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Consultation consultation;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne()
 	private Service service;
 
 }

@@ -1,0 +1,73 @@
+<div class="content-wrapper" style="min-height: 206px;">
+  <form [formGroup]="welcomeForm" class="myForm">
+<div class="row">
+  <div class="col">
+    <div class="col">
+      <div class="form-group">
+        <label for="categorie">Region</label>
+        <select class="form-control" formControlName="region" (change)="onSelectregion($event.target.value)">
+          <option *ngFor="let option of regions " [value]="option.id">{{ option.nomRegion }}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="form-group">
+      <label for="categorie">Ville</label>
+      <select class="form-control" formControlName="ville" (change)="onSelectville($event.target.value)">
+        <option *ngFor="let option of villes " [value]="option.id">{{ option.nomVille }}</option>
+      </select>
+    </div>
+  </div>
+</div>
+  </form>
+  <div class="form-group">
+    <agm-map     [fitBounds]="fitBounds"
+      [latitude]="lat" [longitude]="lng" [zoom]="initzoom" >
+      <agm-marker  [agmFitBounds]="true" *ngFor="let item of hopitals" [latitude]="item.latitude" [longitude]="item.longitude" > 
+    
+      
+        <agm-info-window  style="width: 20rem;"> 
+          <div class="card" style="width: 20rem;">
+            <div class="card-body">
+              <h5 class="card-title"> Hopital </h5>
+                 <strong class="card-text"> {{item.abriviation}} </strong> <h4 class="card-text">  {{item.nom}} </h4> 
+              <a class="btn btn-primary" (click)="selectedHopital = item"
+              data-toggle="modal" data-target=".rdv-hopital">
+              <i class="fas fa-edit"></i>Reserver un Rendez-Vous</a>
+     
+            </div>
+          </div>
+      </agm-info-window>
+      </agm-marker> 
+      </agm-map>
+      <span>{{lat}} : {{lng}}</span>
+    </div>
+    <div class="modal fade rdv-hopital myModal" tabindex="-1" role="dialog" aria-labelledby="myAddModalLabel"
+    aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myAddModalLabel">RERVER : <span>{{ selectedHopital?.nom
+                     | uppercase }} ? </span></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body"> 
+                <h4 class="delete-msg">Voulez-vous vraiment réserver un rdv ?!</h4>
+            <input [(ngModel)]="resConfirmation" type="text"  parsley-trigger="change" required="" placeholder="confirmez la reservation en saisissant 'YES'" class="form-control delete-confirmation"> 
+
+        
+               
+            </div>
+            <div class="modal-footer">
+              <button [disabled]="resConfirmation.toUpperCase() != 'YES'" (click)="resHopital(selectedHopital.id)" type="button"
+                  class="btn btn-delete waves-effect waves-light">Reserver</button>
+              <button type="button" class="btn btn-light waves-effect" data-dismiss="modal">Anuller</button>
+          </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- fin update hopital -->
+
+
+</div>

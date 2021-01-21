@@ -53,8 +53,6 @@ import { HopitalDetailsComponent } from './components/hopital/hopital-details/ho
 import { AgmCoreModule } from '@agm/core';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import { WelcomeComponent } from './components/welcome/welcome/welcome.component';
-import { AddRdvComponent } from './components/rdv/add-rdv/add-rdv.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BoardAdminComponent } from './components/utilisateur/admin/board-admin/board-admin.component';
 import { BoardMedecinComponent } from './components/medecin/board-medecin/board-medecin.component';
 import { BoardUtilisateurComponent } from './components/utilisateur/board-utilisateur/board-utilisateur.component';
@@ -108,7 +106,6 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     AddRegionComponent,
     UpdateRegionComponent,
     WelcomeComponent,
-    AddRdvComponent,
     BoardAdminComponent,
     BoardMedecinComponent,
     BoardUtilisateurComponent
@@ -124,7 +121,6 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     ReactiveFormsModule,
     HttpClientModule,
     AgmSnazzyInfoWindowModule,
-    NgbModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

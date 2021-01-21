@@ -1,14 +1,18 @@
-import { Service } from "./Service"
+import { Patient } from "./Patient";
+import { Service } from "./Service";
 
-export  class RendezVous {
-    id? : number
-    dateRdv? :Date
-    statut : String
-    dateCreation? :Date
-    patient? : any
-    consultation? :any
-    service? :Service
+export class RendezVous {
+    id?:       number;
+    
+    dateRdv?: Date;
+    heureRdv?: string;
+
+    dateCreation?: Date;
+
+    statut?: string;
 
 
+    patient?: Patient;
+    service?: Service;
 
 }

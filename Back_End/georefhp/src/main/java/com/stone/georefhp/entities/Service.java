@@ -28,9 +28,9 @@ public class Service implements Serializable  {
 	private long id;
 
 	private String nom;
-		
-	@OneToMany(mappedBy = "service")
-	private List<NatureService> natureServices;
+
+	@ManyToOne()
+	private NatureService natureService;	
 	
 	@ManyToOne()
 	private Hopital hopital;

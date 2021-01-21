@@ -27,3 +27,4 @@
 .btn-form-submit{background-color:#5fbfce;color:#fff;padding:6px 40px;transition:.6s;border:1px solid;letter-spacing:2px;text-transform:uppercase;font-weight:500}
 .btn-form-submit:hover{background-color:#fff;color:#5fbfce}
 button.close{color:#fff;transition:.6s}
+h4.no-content { text-align: center; text-transform: uppercase; letter-spacing: 3px; padding: 50px; background-color: #67aedf1f; font-weight: 100; color: #00529c; }

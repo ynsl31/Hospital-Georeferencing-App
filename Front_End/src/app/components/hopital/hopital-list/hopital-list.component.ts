@@ -25,7 +25,22 @@ export class HopitalListComponent implements OnInit {
   constructor(
     private Hopitalservice : HopitalService,
 
-  ) { }
+  ) {}
+
+
+  dataTable(){
+
+    $( document ).ready(function() {
+      
+      $('#myDataTable').DataTable({
+        ordering:  false,
+        "bLengthChange" : false,
+        "bInfo":false,
+      })
+
+     });
+    
+  }
 
   ngOnInit() {
     this.loadData();
@@ -38,6 +53,8 @@ export class HopitalListComponent implements OnInit {
 
         this.hopitals = data
         //this.initClient
+        this.dataTable()
+
       },
       error => {
         console.log("error")

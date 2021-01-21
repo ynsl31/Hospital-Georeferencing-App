@@ -36,7 +36,10 @@ export class MedecinListComponent implements OnInit {
     private medecinService : MedecinService,
     private hopitalservice: HopitalService,
 
-  ) { }
+  ) {
+
+   }
+
 
   ngOnInit() {
     this.onSelect()
@@ -141,6 +144,8 @@ export class MedecinListComponent implements OnInit {
 
 
     );
+
+    
   }
 
 }
